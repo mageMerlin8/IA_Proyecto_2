@@ -34,6 +34,9 @@ ficha(0).
 lista_fichas(Ls) :-
   setof(X,ficha(X),Ls0),
   delete(Ls0, 0, Ls).
+  
+lista_fichas_jugadas(Ls):-
+  findall(X, turno(X,_,_,_,_), Ls).
 
 /*
    ___
@@ -204,6 +207,12 @@ main :-
   jugar_turno(2,[6,4],1),
   jugar_turno(1,[6,0],2),
   jugar_turno(2,[4,2],1),
-  jugar_turno(1,[6,2],1).
+  jugar_turno(1,[6,2],1),
+  jugar_turno(2,[0,0],2),
+  jugar_turno(1,[3,0],2),
+  jugar_turno(2,[6,3],1),
+  jugar_turno(1,[3,1],2),
+  jugar_turno(2,[5,1],2),
+  jugar_turno(1,[6,5],2).
 
 :-main.
