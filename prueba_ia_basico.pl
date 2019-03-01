@@ -22,10 +22,25 @@ crea_ia_2_basico_prueba:-
   jugador_asignar_ficha(2,[5,0]),
   jugador_asignar_ficha(2,[1,1]).
 
-  main:-
-    %include('fichas.pl'),
-    write('Numero de Jugadores: 2(default)'),nl,
-    asignar_jugadores(2),nl,
-    crea_ia_1_basico_prueba,
-    crea_ia_2_basico_prueba.
+repite.
+repite:-repite.
+/*
+juega_2_ias:-
+  \+ia_basico_juega(1),
+  \+ia_basico_juega(2).*/
+/*juega_2_ias:-
+  repite,
+  ia_basico_juega(2),
+  ia_basico_juega(1),
+  .
+*/
+juega_ia_prueba:-
+  ia_basico_juega(2),
+  ia_basico_juega(1).
+main:-
+  %include('fichas.pl'),
+  write('Numero de Jugadores: 2(default)'),nl,
+  asignar_jugadores(2),nl,
+  crea_ia_1_basico_prueba,
+  crea_ia_2_basico_prueba.
 :-include(fichas).

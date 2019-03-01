@@ -276,14 +276,7 @@ crea_ia_basico(Js):-
   asigna_piezas_aleatorio(Js),nl.
 
 
-repite.
-repite:-repite.
-juega_2_ias:-
-  crea_ia_basico(1),
-  crea_ia_basico(2),
-  repite,
-  ia_basico_juega(2),
-  ia_basico_juega(1),fail.
+
 
 
 /*
