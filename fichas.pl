@@ -84,7 +84,7 @@ lista_fichas_disponibles(Ls):-
 asignar_jugadores(0) :-!.
 asignar_jugadores(N) :-
   N =< 4,
-  (max_jugadores(_);asserta(max_jugadores(N))),
+  (max_jugadores(_),!;asserta(max_jugadores(N))),
   asserta(jugador(N)),
   M is N-1,
   asignar_jugadores(M).
@@ -244,10 +244,16 @@ ia_basico_juega(Js, Lado):-
   %LadoLibreJugador = 1,!) ),
   jugar_turno(Js, FichaAJugar, Lado),!.
 ia_basico_juega(Js):-
+  \+jugador_turno_valido(Js),
+  write('No es turno de este jugador.'),!,fail.
+ia_basico_juega(Js):-
+  jugador_turno_valido(Js),
   ia_basico(Js),
+  (
   (ia_basico_juega(Js, 1),!);
   (ia_basico_juega(Js, 2),!);
-  (come(Js), ia_basico_juega(Js)).
+  (come(Js), ia_basico_juega(Js))
+  ).
 come(Js):-
   asigna_piezas_aleatorio(Js,1).
 asigna_piezas_aleatorio(Js,0):-!.
@@ -262,19 +268,31 @@ asigna_piezas_aleatorio(Js, Num):-
   asigna_piezas_aleatorio(Js, Num2).
 asigna_piezas_aleatorio(Js):-
   asigna_piezas_aleatorio(Js, 7).
+
 crea_ia_basico(Js):-
   jugador(Js),
   asserta(ia_basico(Js)),
   write('IA #'),write(Js),write(' Basico creado '),
   asigna_piezas_aleatorio(Js),nl.
 
+
+repite.
+repite:-repite.
+juega_2_ias:-
+  crea_ia_basico(1),
+  crea_ia_basico(2),
+  repite,
+  ia_basico_juega(2),
+  ia_basico_juega(1),fail.
+
+
 /*
-___  ___      _
-|  \/  |     (_)
-| .  . | __ _ _ _ __
-| |\/| |/ _` | | '_ \
-| |  | | (_| | | | | |
-\_|  |_/\__,_|_|_| |_|
+___  ___      _           _______                _
+|  \/  |     (_)         / / ___ \              | |
+| .  . | __ _ _ _ __    / /| |_/ / __ _   _  ___| |__   __ _ ___
+| |\/| |/ _` | | '_ \  / / |  __/ '__| | | |/ _ \ '_ \ / _` / __|
+| |  | | (_| | | | | |/ /  | |  | |  | |_| |  __/ |_) | (_| \__ \
+\_|  |_/\__,_|_|_| |_/_/   \_|  |_|   \__,_|\___|_.__/ \__,_|___/
 */
 
 %Funcionalidad general de las reglas del domino y funcionamiento de ia basico
@@ -305,12 +323,10 @@ main :-
 */
 
 %Juego autonomo
+/*
 main :-
   write('Numero de Jugadores: 2(default)'),nl,
   asignar_jugadores(2),nl,
-  crea_ia_basico(1),
-  crea_ia_basico(2).
-  /*
-  turno(Ficha, jugador, lado, numTurno, ladoLibre)
-  */
-:-main.
+  juega_2_ias.
+*/
+%:-main.
