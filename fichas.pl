@@ -34,10 +34,27 @@ ficha(0).
 lista_fichas(Ls) :-
   setof(X,ficha(X),Ls0),
   delete(Ls0, 0, Ls).
-  
+
 lista_fichas_jugadas(Ls):-
   findall(X, turno(X,_,_,_,_), Ls).
 
+lista_fichas_jugador(Ls, Js):-
+  jugador(Js),
+  setof(X, jugador_ficha(Js,X), Ls),!.
+lista_fichas_jugador([], _).
+lista_fichas_disponibles(Ls):-
+    %asumiendo que todas las fichas son asignadas publicamente.
+    lista_fichas(Todas),
+    lista_fichas_jugadas(Jugadas),
+    lista_fichas_jugador(J1,1),
+    lista_fichas_jugador(J2,2),
+    lista_fichas_jugador(J3,3),
+    lista_fichas_jugador(J4,4),
+    union(Jugadas, J1, NoDisp0),
+    union(NoDisp0, J2, NoDisp1),
+    union(NoDisp1, J3, NoDisp2),
+    union(NoDisp2, J4, NoDispFin),
+    subtract(Todas, NoDispFin, Ls).
 /*
    ___
   |_  |
@@ -61,7 +78,8 @@ lista_fichas_jugadas(Ls):-
       jugador_ficha/2,
       turno/5,
       jugador/1,
-      max_jugadores/1.
+      max_jugadores/1,
+      ia_basico/1.
 
 asignar_jugadores(0) :-!.
 asignar_jugadores(N) :-
@@ -89,7 +107,8 @@ jugador_asignar_ficha(Js,Ficha) :-
   (setof(X, jugador_ficha(Js,X), ListaFichasAsignadas),!;
   ListaFichasAsignadas = []),
   \+member(Ficha, ListaFichasAsignadas),
-  asserta(jugador_ficha(Js,Ficha)).
+  asserta(jugador_ficha(Js,Ficha)),
+  write('Ficha Asignada: J-'),write(Js),write(' F-'),write(Ficha),nl.
 
 /*
 turno(Ficha, jugador, lado, numTurno, ladoLibre)
@@ -98,6 +117,7 @@ lado(1).
 lado(2).
 lado(0).
 turno(0,0,0,0,0).
+turno([6,6],1,1,1,0).
 ultimo_turno(T) :-
   findall(X, turno(_,_,_,X,_), Ls),
   max_list(Ls, T).
@@ -120,7 +140,7 @@ ultima_ficha_lado(Lado, Ficha) :-
 ultima_ficha_lado(_, Ficha, -1):-
   turno(Ficha,_,_,1,_),!.
 ultima_ficha_lado(Lado, Ficha, T) :-
-  turno(Ficha,_,Lado,T,_);
+  (turno(Ficha,_,Lado,T,_),!);
   (T1 is T-1,ultima_ficha_lado(Lado, Ficha, T1)).
 
 ficha_turno_valida(_,_,0):-
@@ -166,7 +186,7 @@ jugar_turno(Jugador, Ficha, Lado) :-
   lado(Lado),
   jugador_turno_valido(Jugador),
   ficha_turno_valida(Ficha, Lado, LL),
-
+  retract(jugador_ficha(Jugador,Ficha)),
   %folio
   ultimo_turno(UltT),
   NumTurno is UltT+1,
@@ -179,7 +199,74 @@ jugar_turno(Jugador, Ficha, Lado) :-
   write('  Lado:     '),write(Lado),nl,
   write('  LadoLibre:'),write(LL),nl.
 
+/*
+ _____      _       _ _                       _        ______           _
+|_   _|    | |     | (_)                     (_)       | ___ \         (_)
+  | | _ __ | |_ ___| |_  __ _  ___ _ __   ___ _  __ _  | |_/ / __ _ ___ _  ___ __ _
+  | || '_ \| __/ _ \ | |/ _` |/ _ \ '_ \ / __| |/ _` | | ___ \/ _` / __| |/ __/ _` |
+ _| || | | | ||  __/ | | (_| |  __/ | | | (__| | (_| | | |_/ / (_| \__ \ | (_| (_| |
+ \___/_| |_|\__\___|_|_|\__, |\___|_| |_|\___|_|\__,_| \____/ \__,_|___/_|\___\__,_|
+                         __/ |
+                        |___/
+*/
+%checar si ll es 0 antes
+ia_basico_juega(Js, Lado):-
+  lista_fichas_jugador(ListaFichas, Js),
+  ultima_ficha_lado(Lado, UltF),
+  turno(UltF, _, _, UltT, LL),
+  LL is 0,
+  nth1(1, UltF, NumeroLibre),
+  ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
+  %LadoLibreJugador = 2,!);
+  (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
+  %LadoLibreJugador = 1,!) ),
+  jugar_turno(Js, FichaAJugar, Lado),!.
+ia_basico_juega(Js, Lado):-
+  lista_fichas_jugador(ListaFichas, Js),
+  ultima_ficha_lado(Lado, UltF),
+  turno(UltF, _, _, UltT, LL),
+  LL is 0,
+  nth1(2, UltF, NumeroLibre),
+  ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
+  %LadoLibreJugador = 2,!);
+  (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
+  %LadoLibreJugador = 1,!) ),
+  jugar_turno(Js, FichaAJugar, Lado),!.
 
+ia_basico_juega(Js, Lado):-
+  lista_fichas_jugador(ListaFichas, Js),
+  ultima_ficha_lado(Lado, UltF),
+  turno(UltF, _, _, UltT, LL),
+  nth1(LL, UltF, NumeroLibre),
+  ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
+  %LadoLibreJugador = 2,!);
+  (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
+  %LadoLibreJugador = 1,!) ),
+  jugar_turno(Js, FichaAJugar, Lado),!.
+ia_basico_juega(Js):-
+  ia_basico(Js),
+  (ia_basico_juega(Js, 1),!);
+  (ia_basico_juega(Js, 2),!);
+  (come(Js), ia_basico_juega(Js)).
+come(Js):-
+  asigna_piezas_aleatorio(Js,1).
+asigna_piezas_aleatorio(Js,0):-!.
+asigna_piezas_aleatorio(Js, Num):-
+  random(Rand),
+  lista_fichas_disponibles(Disp),
+  length(Disp, TotDisp),
+  Escoger is floor(Rand * TotDisp),
+  nth0(Escoger, Disp, Ficha),
+  jugador_asignar_ficha(Js, Ficha),
+  Num2 is Num - 1,
+  asigna_piezas_aleatorio(Js, Num2).
+asigna_piezas_aleatorio(Js):-
+  asigna_piezas_aleatorio(Js, 7).
+crea_ia_basico(Js):-
+  jugador(Js),
+  asserta(ia_basico(Js)),
+  write('IA #'),write(Js),write(' Basico creado '),
+  asigna_piezas_aleatorio(Js),nl.
 
 /*
 ___  ___      _
@@ -190,6 +277,8 @@ ___  ___      _
 \_|  |_/\__,_|_|_| |_|
 */
 
+%Funcionalidad general de las reglas del domino y funcionamiento de ia basico
+/*
 main :-
   write('Numero de Jugadores: 2(default)'),nl,
   %read(NumJs),
@@ -198,12 +287,11 @@ main :-
   jugador_asignar_ficha(1,[6,0]),
   jugador_asignar_ficha(1,[6,1]),
   jugador_asignar_ficha(1,[6,2]),
-  jugador_asignar_ficha(1,[6,4]),
   jugador_asignar_ficha(2,[4,0]),
   jugador_asignar_ficha(2,[4,1]),
   jugador_asignar_ficha(2,[4,2]),
   jugador_asignar_ficha(2,[6,4]),
-  jugar_turno(1,[6,6],1),
+  jugar_turno(1,[6,6],1).
   jugar_turno(2,[6,4],1),
   jugar_turno(1,[6,0],2),
   jugar_turno(2,[4,2],1),
@@ -214,5 +302,15 @@ main :-
   jugar_turno(1,[3,1],2),
   jugar_turno(2,[5,1],2),
   jugar_turno(1,[6,5],2).
+*/
 
+%Juego autonomo
+main :-
+  write('Numero de Jugadores: 2(default)'),nl,
+  asignar_jugadores(2),nl,
+  crea_ia_basico(1),
+  crea_ia_basico(2).
+  /*
+  turno(Ficha, jugador, lado, numTurno, ladoLibre)
+  */
 :-main.
