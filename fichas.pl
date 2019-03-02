@@ -80,7 +80,20 @@ lista_fichas_disponibles(Ls):-
       jugador/1,
       max_jugadores/1,
       ia_basico/1.
-
+nuevo_juego :-
+  retractall(jugador_ficha(_,_)),
+  retractall(turno(_,_,_,_,_)),
+  retractall(jugador(_)),
+  retractall(max_jugadores(_)),
+  retractall(ia_basico(_)),
+  assert(turno(0,0,0,0,0)).
+ganador(Js):-
+  jugador(Js),
+  lista_fichas_jugador(Ls,Js),
+  Ls = [],
+  write('Ganador: '),write(Js),!.
+ganador(-1):-
+  write('No Hubo ganador').
 asignar_jugadores(0) :-!.
 asignar_jugadores(N) :-
   N =< 4,
@@ -117,7 +130,7 @@ lado(1).
 lado(2).
 lado(0).
 turno(0,0,0,0,0).
-turno([6,6],1,1,1,0).
+%turno([6,6],1,1,1,0).
 ultimo_turno(T) :-
   findall(X, turno(_,_,_,X,_), Ls),
   max_list(Ls, T).
@@ -209,11 +222,10 @@ jugar_turno(Jugador, Ficha, Lado) :-
                          __/ |
                         |___/
 */
-%checar si ll es 0 antes
 ia_basico_juega(Js, Lado):-
   lista_fichas_jugador(ListaFichas, Js),
   ultima_ficha_lado(Lado, UltF),
-  turno(UltF, _, _, UltT, LL),
+  turno(UltF, _, _, _, LL),
   LL is 0,
   nth1(1, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
@@ -224,7 +236,7 @@ ia_basico_juega(Js, Lado):-
 ia_basico_juega(Js, Lado):-
   lista_fichas_jugador(ListaFichas, Js),
   ultima_ficha_lado(Lado, UltF),
-  turno(UltF, _, _, UltT, LL),
+  turno(UltF, _, _, _, LL),
   LL is 0,
   nth1(2, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
@@ -236,7 +248,7 @@ ia_basico_juega(Js, Lado):-
 ia_basico_juega(Js, Lado):-
   lista_fichas_jugador(ListaFichas, Js),
   ultima_ficha_lado(Lado, UltF),
-  turno(UltF, _, _, UltT, LL),
+  turno(UltF, _, _, _, LL),
   nth1(LL, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
   %LadoLibreJugador = 2,!);
@@ -245,7 +257,20 @@ ia_basico_juega(Js, Lado):-
   jugar_turno(Js, FichaAJugar, Lado),!.
 ia_basico_juega(Js):-
   \+jugador_turno_valido(Js),
-  write('No es turno de este jugador.'),!,fail.
+  write('No es turno de este jugador.'),nl,!,fail.
+ia_basico_juega(Js) :-
+  ultimo_turno(UltT),
+  UltT is 0,
+  lista_fichas_jugador(ListaF, Js),
+  member([X,X], ListaF),
+  jugar_turno(Js, [X,X], 0),!.
+ia_basico_juega(Js) :-
+  ultimo_turno(UltT),
+  UltT is 0,
+  lista_fichas_jugador(ListaF, Js),
+  member([X,Y], ListaF),
+  jugar_turno(Js, [X,Y], 0),!.
+
 ia_basico_juega(Js):-
   jugador_turno_valido(Js),
   ia_basico(Js),
@@ -254,9 +279,11 @@ ia_basico_juega(Js):-
   (ia_basico_juega(Js, 2),!);
   (come(Js), ia_basico_juega(Js))
   ).
+
+
 come(Js):-
   asigna_piezas_aleatorio(Js,1).
-asigna_piezas_aleatorio(Js,0):-!.
+asigna_piezas_aleatorio(_,0):-!.
 asigna_piezas_aleatorio(Js, Num):-
   random(Rand),
   lista_fichas_disponibles(Disp),
