@@ -1,7 +1,7 @@
 crea_ia_1_basico_prueba:-
   jugador(1),
   asserta(ia_basico(1)),
-  write('IA Basico #1 (prueba) creado'),
+  write('IA Basico #1 (prueba) creado'),nl,
   jugador_asignar_ficha(1,[5,1]),
   jugador_asignar_ficha(1,[0,0]),
   jugador_asignar_ficha(1,[1,0]),
@@ -13,7 +13,7 @@ crea_ia_1_basico_prueba:-
 crea_ia_2_basico_prueba:-
   jugador(2),
   asserta(ia_basico(2)),
-  write('IA Basico #2 (prueba) creado'),
+  write('IA Basico #2 (prueba) creado'),nl,
   jugador_asignar_ficha(2,[5,5]),
   jugador_asignar_ficha(2,[2,1]),
   jugador_asignar_ficha(2,[4,1]),
