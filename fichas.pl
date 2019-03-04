@@ -55,6 +55,30 @@ lista_fichas_disponibles(Ls):-
     union(NoDisp1, J3, NoDisp2),
     union(NoDisp2, J4, NoDispFin),
     subtract(Todas, NoDispFin, Ls).
+come(_):-
+  lista_fichas_disponibles(Disp),
+  Disp = [],!,fail.
+come(Js):-
+  asigna_piezas_aleatorio(Js,1).
+asigna_piezas_aleatorio(_,0):-!.
+asigna_piezas_aleatorio(Js, Num):-
+  random(Rand),
+  lista_fichas_disponibles(Disp),
+  length(Disp, TotDisp),
+  Escoger is floor(Rand * TotDisp),
+  nth0(Escoger, Disp, Ficha),
+  jugador_asignar_ficha(Js, Ficha),
+  Num2 is Num - 1,
+  asigna_piezas_aleatorio(Js, Num2).
+asigna_piezas_aleatorio(Js):-
+  asigna_piezas_aleatorio(Js, 7).
+escribe_fichas(Ls):-
+  escribe_fichas(Ls,1).
+escribe_fichas([],_):- nl,!.
+escribe_fichas([F1|Fs],Num):-
+  write(' '),write(Num),write(':'),write(F1),
+  M is Num + 1,
+  escribe_fichas(Fs, M).
 /*
    ___
   |_  |
@@ -79,7 +103,8 @@ lista_fichas_disponibles(Ls):-
       turno/5,
       jugador/1,
       max_jugadores/1,
-      ia_basico/1.
+      ia_basico/1,
+      jugador_persona/1.
 nuevo_juego :-
   retractall(jugador_ficha(_,_)),
   retractall(turno(_,_,_,_,_)),
@@ -213,6 +238,70 @@ jugar_turno(Jugador, Ficha, Lado) :-
   write('  LadoLibre:'),write(LL),nl.
 
 /*
+______
+| ___ \
+| |_/ /__ _ __ ___  ___  _ __   __ _
+|  __/ _ \ '__/ __|/ _ \| '_ \ / _` |
+| | |  __/ |  \__ \ (_) | | | | (_| |
+\_|  \___|_|  |___/\___/|_| |_|\__,_|
+
+todavia no sirve bien.
+*/
+crea_persona(Js) :-
+  jugador(Js),
+  assert(jugador_persona(Js)),
+  write('Jugador humano creado #'),
+  write(Js),nl,
+  asigna_piezas_aleatorio(Js).
+repite.
+repite:-repite.
+persona_juega(Js):-
+  jugador_persona(Js),
+  lista_fichas_jugador(Lista, Js),
+  Lista = [],!,fail.
+
+persona_juega(Js):-
+  jugador_persona(Js),
+  repite,
+  lista_fichas_jugador(Fichas,Js),
+  write('Escoge una ficha o come:'),nl,write(' -1:comer '),nl,
+  escribe_fichas(Fichas),
+  read(Fi),
+  (
+  (Fi is -1, come(Js), fail);
+  (nth1(Fi, Fichas, Ficha),!);
+  (write('No existe la ficha que seleccionaste'),nl,fail)
+  ),
+  write('De que lado quieres jugar (1 o 2)?'),
+  read(Lado),
+  (
+  (jugar_turno(Js,Ficha,Lado),!);
+  (write('ficha invalida. intenta de nuevo'),fail)
+  ).
+
+
+persona_juega(Js) :-
+  jugador_persona(Js),
+  lista_fichas_jugador(Fichas,Js),
+  write('Escoge una ficha:'),nl,
+  escribe_fichas(Fichas),
+  repite,
+  read(Fi),
+  (
+  (nth1(Fi, Fichas, Ficha));
+  (write('No existe la ficha que seleccionaste'),nl,fail)
+  ),
+  write('De que lado quieres jugar (1 o 2)?'),
+  read(Lado),
+  (
+  (jugar_turno(Js,Ficha,Lado),!);
+  (write('ficha invalida. intenta de nuevo'),fail)
+  ).
+
+
+
+
+/*
  _____      _       _ _                       _        ______           _
 |_   _|    | |     | (_)                     (_)       | ___ \         (_)
   | | _ __ | |_ ___| |_  __ _  ___ _ __   ___ _  __ _  | |_/ / __ _ ___ _  ___ __ _
@@ -281,20 +370,6 @@ ia_basico_juega(Js):-
   ).
 
 
-come(Js):-
-  asigna_piezas_aleatorio(Js,1).
-asigna_piezas_aleatorio(_,0):-!.
-asigna_piezas_aleatorio(Js, Num):-
-  random(Rand),
-  lista_fichas_disponibles(Disp),
-  length(Disp, TotDisp),
-  Escoger is floor(Rand * TotDisp),
-  nth0(Escoger, Disp, Ficha),
-  jugador_asignar_ficha(Js, Ficha),
-  Num2 is Num - 1,
-  asigna_piezas_aleatorio(Js, Num2).
-asigna_piezas_aleatorio(Js):-
-  asigna_piezas_aleatorio(Js, 7).
 
 crea_ia_basico(Js):-
   jugador(Js),
