@@ -20,7 +20,6 @@ prueba_1_ia_basico:-
   crea_ia_basico_prueba(2),
   juega_ia_prueba.
 prueba_1_n_veces(0,0,0,0):-!.
-
 prueba_1_n_veces(N,G1,G2,G3):-
   prueba_1_ia_basico,
   M is N-1,
@@ -30,4 +29,7 @@ prueba_1_n_veces(N,G1,G2,G3):-
   (Js is  2, prueba_1_n_veces(M,G1,G22,G3), G2 is G22+1,!);
   (Js is -1, prueba_1_n_veces(M,G1,G2,G33), G3 is G33+1,!)
   ).
+
+main:-prueba_1_ia_basico.
+
 :-include(fichas).
