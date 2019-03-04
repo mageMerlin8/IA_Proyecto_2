@@ -279,28 +279,6 @@ persona_juega(Js):-
   (write('ficha invalida. intenta de nuevo'),fail)
   ).
 
-
-persona_juega(Js) :-
-  jugador_persona(Js),
-  lista_fichas_jugador(Fichas,Js),
-  write('Escoge una ficha:'),nl,
-  escribe_fichas(Fichas),
-  repite,
-  read(Fi),
-  (
-  (nth1(Fi, Fichas, Ficha));
-  (write('No existe la ficha que seleccionaste'),nl,fail)
-  ),
-  write('De que lado quieres jugar (1 o 2)?'),
-  read(Lado),
-  (
-  (jugar_turno(Js,Ficha,Lado),!);
-  (write('ficha invalida. intenta de nuevo'),fail)
-  ).
-
-
-
-
 /*
  _____      _       _ _                       _        ______           _
 |_   _|    | |     | (_)                     (_)       | ___ \         (_)
