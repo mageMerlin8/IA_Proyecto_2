@@ -118,7 +118,7 @@ ganador(Js):-
   Ls = [],
   write('Ganador: '),write(Js),!.
 ganador(-1):-
-  write('No Hubo ganador').
+  write('Empate!').
 asignar_jugadores(0) :-!.
 asignar_jugadores(N) :-
   N =< 4,
