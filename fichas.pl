@@ -238,6 +238,7 @@ juega(Js):-
   (persona_juega(Js),!)
   ).
 
+
 /*
 ganador(oJ) :- Funcion que busca un ganador. oJ es el numero del ganador o -1
                en caso de empate. Ademas escribe un mensaje a la consola.
@@ -298,17 +299,6 @@ ultimo_jugador(J) :-
   turno(_,J,_,T,_).
 
 /*
-segun yo no sirve...
-porque es posible, si ya se tiene la ficha, hacer turno(ficha,A,B,C,D) y obtener
-la informacion que sea del turno ya que cada ficha se juega solo una vez.
-*/
-turno_ficha(Ficha, Turno):-
-  turno(Ficha,_,_,Turno,_),!.
-turno_ficha(F,_):-
-  write('La ficha '),
-  write(F),
-  write(' no se ha jugado').
-/*
 ultima_ficha_lado(iL, oF) :- Funcion que regresa (oF) la ultima ficha que se
                              jugo en el lado iL.
 */
@@ -335,7 +325,6 @@ ficha_turno_valida(_,_,0):-
   ultimo_turno(Ult), Ult is 0,!.
 ficha_turno_valida(Ficha, Lado, LL):-
   ultima_ficha_lado(Lado, UltimaFicha),
-  %turno_ficha(UltimaFicha, UltT),
   turno(UltimaFicha,_,_,_,UltLibre),
 
   UltLibre is 0,
