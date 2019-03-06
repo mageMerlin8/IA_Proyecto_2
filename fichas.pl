@@ -441,19 +441,25 @@ persona_juega(Js):-
   jugador_persona(Js),
   repite,
   lista_fichas_jugador(Fichas,Js),
-  write('Escoge una ficha, come o pasa:'),nl,
-  write('-1:come '),nl,
-  write('-2:pasa '),nl,
+  writeln('Escoge una ficha, come o pasa:'),
+  writeln('-1:come '),
+  writeln('-2:pasa '),
   escribe_fichas(Fichas),
-  read(Fi),
+  read(Fi),nl,
   (
+  %comer
   (Fi is -1, come_aleatorio(Js), fail);
+  %pasar
   (Fi is -2, pasar_turno(Js), !);
-  (nth1(Fi, Fichas, Ficha));
+  %escoger lado
+  (nth1(Fi, Fichas, Ficha),
+   write('Seleccion: '),writeln(Ficha),
+   writeln('De que lado quieres jugar (1 o 2)?'),
+   read(Lado));
+  %ficha invalida
   (write('No existe la ficha que seleccionaste'),nl,fail)
   ),
-  write('De que lado quieres jugar (1 o 2)?'),
-  read(Lado),
+  %intentar turno
   (
   (jugar_turno(Js,Ficha,Lado),!);
   (write('ficha invalida. intenta de nuevo'),fail)
