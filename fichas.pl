@@ -209,7 +209,6 @@ lado(num) :- hecho que define los lados de la cola. lado(0) esta reservado
              'en los dos lados al mismo tiempo'. A partir de la primera lado(1)
              es el indice 1 de la ficha colocada primero y lado(2) el indice 2
              de la ficha colocada.
-        ### comentario:Por lo general no importa mucho porque la primera es mula pero hay que checarlo bien
 */
 lado(1).
 lado(2).
@@ -265,17 +264,9 @@ jugador_ficha_valida(Js,Fi):-
 jugador_asignar_ficha(J,F) :- Le asigna la ficha F al jugador J. Checa que sea
                               valida la asignacion (el jugador y la ficha sean
                               validos y tambien que no se haya asignado esa ficha a ese jugador).
-        ###comentario: creo que se pueden quitar las lineas que checan si la
-                       ficha ya fue asignada al jugador porque ya checa que la
-                       ficha este disponible.
 */
 jugador_asignar_ficha(Js,Ficha) :-
   jugador_ficha_valida(Js,Ficha),
-  /*
-  (setof(X, jugador_ficha(Js,X), ListaFichasAsignadas),!;
-  ListaFichasAsignadas = []),
-  \+member(Ficha, ListaFichasAsignadas),
-  */
   asserta(jugador_ficha(Js,Ficha)),
   write('Ficha Asignada: J-'),write(Js),write(' F-'),write(Ficha),nl.
 
@@ -344,7 +335,6 @@ ficha_turno_valida(Ficha, Lado, LL):-
 ficha_turno_valida(Ficha, Lado, LL) :-
   %ficha y lado
   ultima_ficha_lado(Lado, UltimaFicha),
-  %turno_ficha(UltimaFicha, UltT),
   turno(UltimaFicha, _, _, _, UltLibre),
 
   nth1(UltLibre, UltimaFicha, NumeroLlibre),
@@ -479,9 +469,7 @@ ia_basico_juega(Js, Lado):-
   LL is 0,
   nth1(1, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
-  %LadoLibreJugador = 2,!);
   (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
-  %LadoLibreJugador = 1,!) ),
   jugar_turno(Js, FichaAJugar, Lado),!.
 ia_basico_juega(Js, Lado):-
   lista_fichas_jugador(ListaFichas, Js),
@@ -490,9 +478,7 @@ ia_basico_juega(Js, Lado):-
   LL is 0,
   nth1(2, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
-  %LadoLibreJugador = 2,!);
   (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
-  %LadoLibreJugador = 1,!) ),
   jugar_turno(Js, FichaAJugar, Lado),!.
 
 ia_basico_juega(Js, Lado):-
@@ -501,9 +487,7 @@ ia_basico_juega(Js, Lado):-
   turno(UltF, _, _, _, LL),
   nth1(LL, UltF, NumeroLibre),
   ( (member([NumeroLibre,X],ListaFichas), FichaAJugar = [NumeroLibre, X],!);
-  %LadoLibreJugador = 2,!);
   (member([X,NumeroLibre],ListaFichas), FichaAJugar = [X,NumeroLibre],!) ),
-  %LadoLibreJugador = 1,!) ),
   jugar_turno(Js, FichaAJugar, Lado),!.
 
 /*
