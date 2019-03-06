@@ -176,6 +176,7 @@ turno(ficha, jugador, lado, num_turno, lado_libre) :-
                   la ficha empezando en 1).
     Ademas se debe definir un turno(0,0,0,0,0) como caso base de algunas
     funciones.
+    Se define un turno de un jugador que pasa de la forma turno(0,J,0,N,0).
 jugador(num) :- Hecho dinamico que indica que existe un jugador con en numero
                 num. Se usa para saber quienes son jugadores en un juego. Se
                 deben asignar todos los jugadores al principio de cada juego.
@@ -225,6 +226,17 @@ nuevo_juego :-
   retractall(max_jugadores(_)),
   retractall(ia_basico(_)),
   assert(turno(0,0,0,0,0)).
+/*
+juega(iJ) :- intenta hacer jugar al siguiente jugador. Llama todas las Funciones
+             *_juega/1 hasta que una sea verdadera. Es falsa si no es posible hacer jugar a ese jugador.
+*/
+juega(Js):-
+  jugador(Js),
+  jugador_turno_valido(Js),
+  (
+  (ia_basico_juega(Js),!);
+  (persona_juega(Js),!)
+  ).
 
 /*
 ganador(oJ) :- Funcion que busca un ganador. oJ es el numero del ganador o -1
@@ -387,6 +399,18 @@ jugar_turno(Jugador, Ficha, Lado) :-
   write('  LadoLibre:'),write(LL),nl.
 
 /*
+pasar_turno(iJ) :- Hace que el jugador iJ pase. Solamente se debe llamar cuando
+                   un jugador no puede ni comer ni poner ficha.
+*/
+pasar_turno(Js) :-
+  jugador(Js),
+  ultimo_turno(UltT),
+  NumT is UltT + 1,
+  asserta(turno(0,Js,0,NumT,0)),
+  write('Turno: '),write(NumT),nl,
+  write('  Jugador:  '),write(Js),nl,
+  write('  El jugador pasa su turno.').
+/*
 ______
 | ___ \
 | |_/ /__ _ __ ___  ___  _ __   __ _
@@ -418,17 +442,24 @@ persona_juega(iJ) :- Funcion para hacer jugar al jugador humano iJ. Entra en un
 persona_juega(Js):-
   jugador_persona(Js),
   lista_fichas_jugador(Lista, Js),
+  %no tiene fichas entonces gano
   Lista = [],!,fail.
-
+persona_juega(Js):-
+  jugador_persona(Js),
+  %no le toca
+  \+jugador_turno_valido(Js),!,fail.
 persona_juega(Js):-
   jugador_persona(Js),
   repite,
   lista_fichas_jugador(Fichas,Js),
-  write('Escoge una ficha o come:'),nl,write(' -1:come '),nl,
+  write('Escoge una ficha, come o pasa:'),nl,
+  write('-1:come '),nl,
+  write('-2:pasa '),nl,
   escribe_fichas(Fichas),
   read(Fi),
   (
   (Fi is -1, come_aleatorio(Js), fail);
+  (Fi is -2, pasar_turno(Js), !);
   (nth1(Fi, Fichas, Ficha));
   (write('No existe la ficha que seleccionaste'),nl,fail)
   ),
@@ -495,15 +526,18 @@ ia_basico_juega(iJ) :- Funcion para hacer que el jugador tipo 'ia_basico'
                        juegue.
 */
 ia_basico_juega(Js):-
+  ia_basico(Js),
   \+jugador_turno_valido(Js),
   write('No es turno de este jugador.'),nl,!,fail.
 ia_basico_juega(Js) :-
+  ia_basico(Js),
   ultimo_turno(UltT),
   UltT is 0,
   lista_fichas_jugador(ListaF, Js),
   member([X,X], ListaF),
   jugar_turno(Js, [X,X], 0),!.
 ia_basico_juega(Js) :-
+  ia_basico(Js),
   ultimo_turno(UltT),
   UltT is 0,
   lista_fichas_jugador(ListaF, Js),
@@ -515,7 +549,8 @@ ia_basico_juega(Js):-
   (
   (ia_basico_juega(Js, 1),!);
   (ia_basico_juega(Js, 2),!);
-  (come_aleatorio(Js), ia_basico_juega(Js))
+  (come_aleatorio(Js), ia_basico_juega(Js));
+  (pasar_turno(Js),!)
   ).
 
 /*
