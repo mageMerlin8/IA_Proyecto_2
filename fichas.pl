@@ -83,6 +83,7 @@ lista_fichas_disponibles(Ls):-
     union(NoDisp1, J3, NoDisp2),
     union(NoDisp2, J4, NoDispFin),
     subtract(Todas, NoDispFin, Ls).
+
 /*
 come_aleatorio(i) :- Funcion que asigna una ficha de la lista de disponibles
                      a algun jugador. Toma como parametro el numero del jugador
@@ -93,6 +94,7 @@ come_aleatorio(_):-
   Disp = [],!,fail.
 come_aleatorio(Js):-
   asigna_piezas_aleatorio(Js,1).
+
 /*
 come(iJ, iF) :- Intenta asignar la ficha iF al jugador iJ. Escribe mensaje de
                 error a la consola.
@@ -102,6 +104,7 @@ come(Js, Fi):-
 come(Js,Fi):-
   write('Jugador #'),write(Js),
   write('no puede comer la ficha '),write(Fi),!.
+
 /*
 asigna_piezas_aleatorio(i, i) :- Toma como parametros un numero de jugador y un
                                  numero de fichas. Asigna aleatoriamente el
@@ -120,7 +123,8 @@ asigna_piezas_aleatorio(Js, Num):-
   Num2 is Num - 1,
   asigna_piezas_aleatorio(Js, Num2).
 asigna_piezas_aleatorio(Js):-
-  asigna_piezas_aleatorio(Js, 7).
+  num_piezas_ini(X),
+  asigna_piezas_aleatorio(Js, X).
 /*
 escribe_fichas(i) :- Toma como parametro una lista de fichas y la escribe a la
                      consola con el indice de la lista (empezando en 1).
@@ -147,15 +151,6 @@ crean funciones de utilidad para preguntar informacion importante del juego.
 
 */
 /*
-:- module(juego, [jugador_ficha/2,
-                  jugador_ficha_valida/2,
-                  asignar_jugadores/1,
-                  turno/4,
-                  jugador/1,
-                  lado/1,
-                  jugador_asignar_ficha/2]).
-*/
-/*
 Hechos dinamicos:
 ----------------------------
 Los siguientes hechos dinamicos se utilizan a lo lago del resto del codigo ya
@@ -177,11 +172,13 @@ turno(ficha, jugador, lado, num_turno, lado_libre) :-
     Ademas se debe definir un turno(0,0,0,0,0) como caso base de algunas
     funciones.
     Se define un turno de un jugador que pasa de la forma turno(0,J,0,N,0).
+
+max_jugadores(num) :- Hecho dinamico que indica el numero maximo de jugadores.
+
 jugador(num) :- Hecho dinamico que indica que existe un jugador con en numero
                 num. Se usa para saber quienes son jugadores en un juego. Se
                 deben asignar todos los jugadores al principio de cada juego.
 
-max_jugadores(num) :- Hecho dinamico que indica el numero maximo de jugadores.
 
 ia_basico(num) :- Hecho dinamico que indica que num es el numero de un jugador
                   autonomo tipo 'ia_basico'. Este es un agente autonomo que
@@ -195,15 +192,31 @@ jugador_persona(num) :- Hecho dinamico que indica que num es el numero de un
                         si  es posible jugar y por lo tanto el jugador humano
                         debe tomar en cuenta las reglas del juego al decidir
                         por un agente tipo 'jugador_persona'.
+
+jugador_oculto(num) :- Hecho dinamico que indica que num es el numero de un
+                       jugador 'oculto'. Un jugador oculto puede jugar
+                       cualquier ficha que no haya sido jugada antes y que no
+                       pertenezca a algun jugador.
+
+oculto_comio(jugador,turno) :- Hecho dinamico que indica cuando el jugador
+                               comio una ficha durante el turno. Solamente se
+                               debe usar para losjugadores ocultos.
+jugador_oculto_no_tiene(jugador, numero):-
+      Hecho dinamico que indica cuando se sabe que el jugador oculto no tiene
+      el numero.
 */
 :- dynamic
       jugador_ficha/2,
       turno/5,
-      jugador/1,
       max_jugadores/1,
+      jugador/1,
       ia_basico/1,
-      jugador_persona/1.
-
+      jugador_persona/1,
+      jugador_oculto/1,
+      oculto_comio/2,
+      jugador_oculto_no_tiene/2.
+%se define el numero inicial de fichas de cada jugador
+num_piezas_ini(7).
 /*
 lado(num) :- hecho que define los lados de la cola. lado(0) esta reservado
              unicamente para la primera ficha de la cola porque esa es colocada
@@ -222,9 +235,12 @@ nuevo_juego :- Predicado para empezar un juego nuevo. Restaura todos los
 nuevo_juego :-
   retractall(jugador_ficha(_,_)),
   retractall(turno(_,_,_,_,_)),
+  retractall(oculto_comio(_,_)),
   retractall(jugador(_)),
   retractall(max_jugadores(_)),
   retractall(ia_basico(_)),
+  retractall(jugador_persona(_)),
+  retractall(jugador_oculto(_)),
   assert(turno(0,0,0,0,0)).
 /*
 juega(iJ) :- intenta hacer jugar al siguiente jugador. Llama todas las Funciones
@@ -313,6 +329,21 @@ ultima_ficha_lado(_, Ficha, -1):-
 ultima_ficha_lado(Lado, Ficha, T) :-
   (turno(Ficha,_,Lado,T,_),!);
   (T1 is T-1,ultima_ficha_lado(Lado, Ficha, T1)).
+/*
+ficha_num_libre(iF,oN) :- oN es el numero que esta libre de la ficha iF. iF es
+                          una ficha jugada.
+*/
+ficha_num_libre([X,Y],X):-
+  turno([X,Y],_,_,_,1),!.
+ficha_num_libre([X,Y],Y):-
+  turno([X,Y],_,_,_,2),!.
+ficha_num_libre([X,Y],X):-
+  turno([X,Y],_,0,1,0),!,
+  \+turno(_,_,1,_,_),!.
+ficha_num_libre([X,Y],Y):-
+  turno([X,Y],_,0,1,0),
+  \+turno(_,_,2,_,_),!.
+
 
 /*
 ficha_turno_valida(iF, iL, uLL) :- Funcion para validar un turno. Toma una ficha
@@ -374,7 +405,8 @@ jugar_turno(Jugador, Ficha, Lado) :-
   lado(Lado),
   jugador_turno_valido(Jugador),
   ficha_turno_valida(Ficha, Lado, LL),
-  retract(jugador_ficha(Jugador,Ficha)),
+  %para que funcione con jugadores ocultos
+  (retract(jugador_ficha(Jugador,Ficha));true),
   %folio
   ultimo_turno(UltT),
   NumTurno is UltT+1,
@@ -467,6 +499,104 @@ persona_juega(Js):-
 repite.
 repite:-repite.
 /*
+ _____            _ _
+|  _  |          | | |
+| | | | ___ _   _| | |_ ___
+| | | |/ __| | | | | __/ _ \
+\ \_/ / (__| |_| | | || (_) |
+ \___/ \___|\__,_|_|\__\___/
+
+Aqui se define la funcionalidad de un jugador 'oculto'. De este jugador no se sabe sus fichas. Se definen funciones para contar sus fichas.
+*/
+
+/*
+crea_jugador_oculto(iN) :-
+*/
+crea_jugador_oculto(Js) :-
+  jugador(Js),
+  assert(jugador_oculto(Js)),
+  write('Jugador oculto creado #'),
+  write(Js),nl.
+jugador_oculto_juega(Js, [F1,F2], La) :-
+  jugador_oculto(Js),
+  jugador_turno_valido(Js),
+  lista_fichas_disponibles(Disp),
+  member([F1,F2],Disp),
+  jugar_turno(Js, [F1,F2], La),!,
+  retractall(jugador_oculto_no_tiene(Js,F1)),
+  retractall(jugador_oculto_no_tiene(Js,F2)).
+
+jugador_oculto_pasa(Js):-
+  jugador_oculto(Js),
+  jugador_turno_valido(Js),
+  pasar_turno(Js).
+
+jugador_oculto_come(Js):-
+  jugador_oculto(Js),
+  jugador_turno_valido(Js),
+  ultimo_turno(UltT),
+  %acertar que comio
+  asserta(oculto_comio(Js,UltT)),
+  %cuando come, dejamos de saber cuales no tiene
+  retractall(jugador_oculto_no_tiene(Js,_)),
+  %pero si sabemos que no tiene las que no pudo jugar
+  ultima_ficha_lado(UltF1,1),
+  ultima_ficha_lado(UltF2,2),
+  ficha_num_libre(UltF1,X1),
+  ficha_num_libre(UltF2,X2),
+  asserta(jugador_oculto_no_tiene(Js,X1)),
+  asserta(jugador_oculto_no_tiene(Js,X2)).
+
+
+mano_posible_oculto(Js,Comb):-
+  lista_fichas_disponibles_oculto(Js,Disp),
+  numero_fichas_jugador_oculto(Js,Tam),
+  combinacion(Tam, Disp, Comb).
+  %permutation(Ls,Comb).
+/*
+combinacion(tamanio,lista,resp)
+*/
+combinacion(0,_,[]).
+combinacion(N,[X|T],[X|Comb]) :-
+    N>0,
+    N1 is N-1,
+    combinacion(N1,T,Comb).
+combinacion(N,[_|T],Comb) :-
+    N>0,
+    combinacion(N,T,Comb).
+
+lista_fichas_disponibles_oculto(Js,Ls):-
+  lista_fichas_disponibles(Disp),
+  (
+  (setof(X,jugador_oculto_no_tiene(Js,X), NumsNoTiene),!);
+  NumsNoTiene = []
+  ),
+  lista_fichas_sin_lista(FiNoTiene,NumsNoTiene),
+  intersection(Disp, FiNoTiene, Ls).
+
+lista_fichas_sin_lista([],[]).
+lista_fichas_sin_lista(Resp, [Num|Lnumeros]):-
+  lista_fichas_sin_lista(FichasP,Lnumeros),
+  setof(X, ficha_sin(X,Num), FichasN),
+  union(FichasP,FichasN,Resp).
+ficha_sin([X|Y],Num):-
+  ficha([X|Y]),
+  X =\= Num,
+  Y =\= Num.
+
+
+numero_fichas_jugador_oculto(Js, Num) :-
+  jugador_oculto(Js),
+  num_piezas_ini(Ini),
+  ((setof(X,oculto_comio(Js,X),ListaComidas),!);
+  ListaComidas = []),
+  length(ListaComidas, NumComidas),
+  ((setof(X,turno(X,Js,_,_,_), LsFichasJugadas),!);
+  LsFichasJugadas = []),
+  length(LsFichasJugadas, NumJugadas),
+  Num is Ini + NumComidas - NumJugadas.
+
+/*
  _____  ___   ______           _
 |_   _|/ _ \  | ___ \         (_)
   | | / /_\ \ | |_/ / __ _ ___ _  ___ ___
@@ -478,8 +608,7 @@ Aqui se define todo el funcionamiento del primer agente autonomo. Toma la decisi
 
 /*
 crea_ia_basico(iJ) :- Funcion para crear un jugador tipo 'ia_basico'. Al igual
-                      que crea_persona/1, le asigna 7 fichas de manera aleatoria
-                      y muestra un mensaje.
+                      que crea_persona/1, le asigna 7 fichas de manera aleatoria y muestra un mensaje.
 */
 crea_ia_basico(Js):-
   jugador(Js),
