@@ -588,10 +588,10 @@ ficha_sin([X|Y],Num):-
 numero_fichas_jugador_oculto(Js, Num) :-
   jugador_oculto(Js),
   num_piezas_ini(Ini),
-  ((setof(X,oculto_comio(Js,X),ListaComidas),!);
+  ((findall(X,oculto_comio(Js,X),ListaComidas),!);
   ListaComidas = []),
   length(ListaComidas, NumComidas),
-  ((setof(X,turno(X,Js,_,_,_), LsFichasJugadas),!);
+  ((findall(X,turno(X,Js,_,_,_), LsFichasJugadas),!);
   LsFichasJugadas = []),
   length(LsFichasJugadas, NumJugadas),
   Num is Ini + NumComidas - NumJugadas.
