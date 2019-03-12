@@ -338,7 +338,7 @@ ficha_num_libre([X,Y],X):-
 ficha_num_libre([X,Y],Y):-
   turno([X,Y],_,_,_,2),!.
 ficha_num_libre([X,Y],X):-
-  turno([X,Y],_,0,1,0),!,
+  turno([X,Y],_,0,1,0),
   \+turno(_,_,1,_,_),!.
 ficha_num_libre([X,Y],Y):-
   turno([X,Y],_,0,1,0),
@@ -355,6 +355,7 @@ ficha_turno_valida(iF, iL, uLL) :- Funcion para validar un turno. Toma una ficha
 ficha_turno_valida(_,_,0):-
   ultimo_turno(Ult), Ult is 0,!.
 ficha_turno_valida(Ficha, Lado, LL):-
+  %TODO: se pueden cambiar las 4 lineas de abajo por una llamada a ultima_ficha_lado
   ultima_ficha_lado(Lado, UltimaFicha),
   turno(UltimaFicha,_,_,_,UltLibre),
 
@@ -365,6 +366,7 @@ ficha_turno_valida(Ficha, Lado, LL):-
   (nth1(2,Ficha,NumeroUltimaFicha), LL is 1,!)
   ).
 ficha_turno_valida(Ficha, Lado, LL) :-
+  %TODO: se pueden cambiar las 4 lineas de abajo por una llamada a ultima_ficha_lado
   %ficha y lado
   ultima_ficha_lado(Lado, UltimaFicha),
   turno(UltimaFicha, _, _, _, UltLibre),
