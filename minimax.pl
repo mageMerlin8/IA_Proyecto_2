@@ -28,6 +28,9 @@ asignar_fichas_p(Js,[Fi|Mano]):-
   asserta(jugador_ficha_p(Js,Fi)),
   asignar_fichas_p(Js,Mano).
 asignar_fichas_p(_,[]).
+mano_jugador_p(Js,Mano):-
+  findall(X,jugador_ficha_p(Js,X),Mano),!.
+mano_jugador_p(_,[]):-!.
 /*
 Primero se replica toda la funcionalidad del juego dentro del agente inteligente
 para que pueda construir los arboles de juego usando la misma logica de juego y
@@ -128,7 +131,7 @@ jugar_turno_p(Jugador, Ficha, Lado):-
 
   jugador_turno_valido_p(Jugador),
   ficha_turno_valida_p(Ficha, Lado, LL),
-
+  retract(jugador_ficha_p(Jugador,Ficha)),
   ultimo_turno_p(UltT),
   NumTurno is UltT+1,
 
@@ -168,19 +171,24 @@ retraer_turnos_anteriores(Turno):-
   \+retraer_turnos_anteriores(Turno,UltT).
 retraer_turnos_anteriores(Turno,T1):-
   T1>=Turno,
+  turno_p(F1,Js,_,T1,_),
+  asserta(jugador_ficha_p(Js,F1)),
   retract(turno_p(_,_,_,T1,_)),
   T2 is T1-1,
   retraer_turnos_anteriores(Turno,T2).
 
 
-jugar_turno_minimax([Lado|Ficha],Turno):-
+jugar_turno_minimax([Lado|[Ficha]],Turno):-
   %quitar todos los turnos anteriores y este
   retraer_turnos_anteriores(Turno),
   %conseguir numero del jugador
   jugador_turno_valido_p(Js),
   %jugar el turno
   jugar_turno_p(Js,Ficha,Lado).
-
+movidas_posibles_minimax(Mvs):-
+  jugador_turno_valido_p(Js),
+  mano_jugador_p(Js,Mano),
+  movidas_posibles(Mano,Mvs).
 /*
 Funcion de evaluacion basica para dos jugadores ocultos
 */
@@ -188,3 +196,37 @@ evalua_1(Val):-
   numero_fichas_jugador_oculto_p(1,J1),
   numero_fichas_jugador_oculto_p(2,J2),
   Val is J2-J1.
+
+/*
+La siguiente implementacion del algoritmo minimax imita el descrito en:
+The Art of Prolog, Second Edition
+Advanced Programming Techniques
+By Leon S. Sterling and Ehud Y. Shapiro
+Capitulo 20
+*/
+evaluate_and_choose([Mv|Movidas],Turno,D,MaxMin,Record,Best):-
+  jugar_turno_minimax(Mv,Turno),
+  T2 is Turno+1,
+  minimax(D,T2,MaxMin,_,Val),
+  update(Mv,Val,Record,R2),
+  evaluate_and_choose(Movidas,Turno,D,MaxMin,R2,Best).
+evaluate_and_choose([],_,_,_,R,R).
+minimax(0,_,MaxMin,_,Val):-
+  evalua_1(Val),
+  Val is MaxMin*Val.
+minimax(D,Turno,MaxMin,Mv,Val):-
+  D>0,
+  movidas_posibles_minimax(Movidas),
+  D1 is D-1,
+  MinMax is -MaxMin,
+  evaluate_and_choose(Movidas,Turno,D1,MinMax,[nil,-inf],[Mv,Val]).
+update(_,Val,[Mv1,V1],[Mv1,V1]):-
+   Val < V1.
+update(Mv,Val,_,[Mv,Val]).
+
+/*
+update(Move,Value,(Move1,Value1),(Movel,Valuel)) —
+Value < Value 1.
+update(Move,Value,(Movel,Value1),(Move.Value)) —
+Value > Valuel.
+*/

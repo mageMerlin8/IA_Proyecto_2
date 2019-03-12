@@ -10,6 +10,8 @@ main:-
   jugador_oculto_juega(2,[6,1],1),
   jugador_oculto_juega(1,[6,0],2),
   jugador_oculto_juega(2,[1,1],1),
+  asignar_fichas_p(1,[[2,1],[3,3],[2,0],[5,3],[5,1]]),
+  asignar_fichas_p(2,[[3,2],[4,3],[3,1],[6,5],[2,2]]),
   jugar_turno_p(1,[2,1],1),
   jugar_turno_p(2,[3,2],1),
   jugar_turno_p(1,[3,3],1).
