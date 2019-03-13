@@ -574,7 +574,7 @@ lista_fichas_disponibles_oculto(Js,Ls):-
   NumsNoTiene = []
   ),
   lista_fichas_sin_lista(FiNoTiene,NumsNoTiene),
-  intersection(Disp, FiNoTiene, Ls).
+  subtract(Disp, FiNoTiene, Ls).
 
 lista_fichas_sin_lista([],[]).
 lista_fichas_sin_lista(Resp, [Num|Lnumeros]):-
