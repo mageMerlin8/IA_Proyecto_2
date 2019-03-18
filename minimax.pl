@@ -170,15 +170,15 @@ numero_fichas_jugador_oculto_p(Js,Num):-
 
 retraer_turnos_anteriores(Turno):-
   ultimo_turno_p(UltT),
-  \+retraer_turnos_anteriores(Turno,UltT).
+  retraer_turnos_anteriores(Turno,UltT).
 retraer_turnos_anteriores(Turno,T1):-
   T1>=Turno,
   turno_p(F1,Js,_,T1,_),
   asserta(jugador_ficha_p(Js,F1)),
   retract(turno_p(_,_,_,T1,_)),
   T2 is T1-1,
-  retraer_turnos_anteriores(Turno,T2).
-
+  retraer_turnos_anteriores(Turno,T2),!.
+retraer_turnos_anteriores(_,_):-!.
 
 jugar_turno_minimax([Lado|[Ficha]],Turno):-
   %quitar todos los turnos anteriores y este
@@ -295,9 +295,11 @@ ia_minimax_cambia_valor_movida(Movida,Val):-
 ia_minimax_cambia_valor_movida(Movida,Val):-
   asserta(movida_minmax(Movida,Val)),!.
 
+
 ia_minimax_evalua(Js,Resp):-
   lista_fichas_jugador(ManoIA,Js),
   movidas_posibles(ManoIA,Movidas),
+  retractall(movida_minmax(_,_)),
   ia_minimax_acerta_movidas_ini(Movidas),
   /*ultimo_turno(UltT),
   T1 is UltT+1,
@@ -311,7 +313,8 @@ ia_minimax_evalua(Js,Resp):-
   ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp).
   %hacer jugador_ficha jugaror_ficha_p
 ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
-  retractall(jugador_ficha_p/2),
+  retractall(jugador_ficha_p(_,_)),
+  retractall(turno_p(_,_,_,_,_)),
   asignar_fichas_p(Js,ManoIA),
   jugador_oculto(Jo),
   asignar_fichas_p(Jo,Mano),
@@ -320,16 +323,18 @@ ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
 
   nl,writeln(['  Mano siendo analizada: ',Mano]),
 
-  evaluate_and_choose(Movidas,T1,2,1,[nil,-100],[Mv,Val]),
+  time(evaluate_and_choose(Movidas,T1,2,1,[nil,-100],[Mv,Val])),
 
   writeln(['    Movida: ',Mv,' Val: ',Val]),
 
-  ia_minimax_cambia_valor_movida(Mv,Val),
+  time(ia_minimax_cambia_valor_movida(Mv,Val)),
   ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp).
+
 ia_minimax_evalua(_,_,[],_,Resp):-
   findall(X,movida_minmax(_,X),ValMovidas),
   max_list(ValMovidas,MaxVal),
   movida_minmax(Resp,MaxVal).
+
 ia_minimax_juega(Js,Fi,La):-
   ia_minimax(Js),
   ficha(Fi),
@@ -349,3 +354,9 @@ ia_minimax_juega(Js,Fi,La):-
   writeln([Mv,Val]),!.
 %manos oc
 */
+
+prueba_minimax_wiri(Mano):-
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+  ia_minimax_acerta_movidas_ini(Movidas),
+  ia_minimax_evalua(Js,Movidas,[Mano],ManoIA,_).
