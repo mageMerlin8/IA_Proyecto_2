@@ -11,6 +11,8 @@ juega_ia_prueba:-
   \+ia_basico_juega(2),
   \+ia_basico_juega(1),!.
 juega_ia_prueba:-
+  ganador(_),!.
+juega_ia_prueba:-
   juega_ia_prueba.
 prueba_1_ia_basico:-
   nuevo_juego,

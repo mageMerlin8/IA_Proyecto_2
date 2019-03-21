@@ -265,7 +265,8 @@ ganador(Js):-
   Ls = [],
   write('Ganador: '),write(Js),!.
 ganador(-1):-
-  write('Empate!').
+  %write('Empate!'),
+  fail.
 
 /*
 asignar_jugadores(iN) :- Funcion que crea iN (numero) jugadores. Se utiliza al

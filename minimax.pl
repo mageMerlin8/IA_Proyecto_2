@@ -19,13 +19,14 @@ turno_p(ficha, jugador, lado, num_turno, lado_libre):-
     arbol minimax.
 */
 
-
-:-dynamic
+:-thread_local
   turno_p/5,
   jugador_ficha_p/2,
-  ia_minimax/1,
-  %movida_minmax(mv,num)
   movida_minmax/2.
+
+:-dynamic
+  ia_minimax/1.
+  %movida_minmax(mv,num)
 asignar_fichas_p(Js,[Fi|Mano]):-
   asserta(jugador_ficha_p(Js,Fi)),
   asignar_fichas_p(Js,Mano).
@@ -137,12 +138,12 @@ jugar_turno_p(Jugador, Ficha, Lado):-
   ultimo_turno_p(UltT),
   NumTurno is UltT+1,
 
-  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL)).
-  /*write('Turno probable: '),write(NumTurno),nl,
+  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL)),
+  write('Turno probable: '),write(NumTurno),nl,
   write('  Jugador:  '),write(Jugador),nl,
   write('  Ficha:    '),write(Ficha),nl,
   write('  Lado:     '),write(Lado),nl,
-  write('  LadoLibre:'),write(LL),nl.*/
+  write('  LadoLibre:'),write(LL),nl.
 
 %MV de la forma: [Lado,Ficha([X1,X2])]
 movidas_posibles([],[]).
@@ -201,6 +202,7 @@ evalua_1(Val):-
 evalua_rand(Val):-
   random(X),
   Val is X*10.
+  %listing(turno_p).
 
 /*
 La siguiente implementacion del algoritmo minimax imita el descrito en:
@@ -234,13 +236,14 @@ evaluate_and_choose_ab([Mv|Movidas],Turno,D,Alfa,Beta,Mv1,Best):-
   jugar_turno_minimax(Mv,Turno),
   T1 is Turno + 1,
   alpha_beta(D,T1,Alfa,Beta,_,Val),
-  Val1 is -Val,
+  Val1 is Val,
   cutoff(Mv,Val1,D,Alfa,Beta,Movidas,Turno,Mv1,Best).
+%evaluate_and_choose_ab([],_,0,Alfa,_,Mv,[Mv,Alfa]).
 evaluate_and_choose_ab([],_,_,Alfa,_,Mv,[Mv,Alfa]).
 alpha_beta(0,_,_,_,_,Val):-
   evalua_rand(Val).
 alpha_beta(D,Turno,Alfa,Beta,Mv,Val):-
-  movidas_posibles(Movidas),
+  movidas_posibles_minimax(Movidas),
   Alfa1 is -Beta,
   Beta1 is -Alfa,
   D1 is D - 1,
@@ -312,6 +315,8 @@ ia_minimax_evalua(Js,Resp):-
 
   ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp).
   %hacer jugador_ficha jugaror_ficha_p
+%minimax
+/*
 ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
   retractall(jugador_ficha_p(_,_)),
   retractall(turno_p(_,_,_,_,_)),
@@ -323,17 +328,38 @@ ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
 
   nl,writeln(['  Mano siendo analizada: ',Mano]),
 
-  time(evaluate_and_choose(Movidas,T1,2,1,[nil,-100],[Mv,Val])),
+  time(evaluate_and_choose(Movidas,T1,4,1,[nil,-100],[Mv,Val])),
+
+  writeln(['    Movida: ',Mv,' Val: ',Val]),
+
+  time(ia_minimax_cambia_valor_movida(Mv,Val)),
+  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp).*/
+  %acaba minimax
+%alfabeta
+ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
+  retractall(jugador_ficha_p(_,_)),
+  retractall(turno_p(_,_,_,_,_)),
+  asignar_fichas_p(Js,ManoIA),
+  jugador_oculto(Jo),
+  asignar_fichas_p(Jo,Mano),
+  ultimo_turno(UltT),
+  T1 is UltT+1,
+
+  nl,writeln(['  Mano siendo analizada: ',Mano]),
+
+  time(evaluate_and_choose_ab(Movidas,T1,4,-inf,inf,_,[Mv,Val])),
 
   writeln(['    Movida: ',Mv,' Val: ',Val]),
 
   time(ia_minimax_cambia_valor_movida(Mv,Val)),
   ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp).
+  %acaba alfabeta
+
 
 ia_minimax_evalua(_,_,[],_,Resp):-
   findall(X,movida_minmax(_,X),ValMovidas),
   max_list(ValMovidas,MaxVal),
-  movida_minmax(Resp,MaxVal).
+  movida_minmax(Resp,MaxVal),!.
 
 ia_minimax_juega(Js,Fi,La):-
   ia_minimax(Js),
@@ -360,3 +386,10 @@ prueba_minimax_wiri(Mano):-
   movidas_posibles(ManoIA,Movidas),
   ia_minimax_acerta_movidas_ini(Movidas),
   ia_minimax_evalua(Js,Movidas,[Mano],ManoIA,_).
+/*
+spy points:
+ia_minimax_evalua/5
+evaluate_and_choose_ab/7
+alpha_beta/6
+cutoff/9
+*/
