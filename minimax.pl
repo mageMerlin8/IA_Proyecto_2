@@ -138,12 +138,12 @@ jugar_turno_p(Jugador, Ficha, Lado):-
   ultimo_turno_p(UltT),
   NumTurno is UltT+1,
 
-  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL)),
-  write('Turno probable: '),write(NumTurno),nl,
+  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL))
+  /*write('Turno probable: '),write(NumTurno),nl,
   write('  Jugador:  '),write(Jugador),nl,
   write('  Ficha:    '),write(Ficha),nl,
   write('  Lado:     '),write(Lado),nl,
-  write('  LadoLibre:'),write(LL),nl.
+  write('  LadoLibre:'),write(LL),nl*/.
 
 %MV de la forma: [Lado,Ficha([X1,X2])]
 movidas_posibles([],[]).
@@ -311,7 +311,7 @@ ia_minimax_evalua(Js,Resp):-
   fichas_por_jugador(Oponente,ManosOp),*/
   findall(X,mano_posible_oculto(2,X),ManosOp),
 
-  length(ManosOp,Tam0),writeln(['Numero de manos posibles: ',Tam0]),nl,
+  length(ManosOp,Tam0),write('Numero de manos posibles: '),writeln(Tam0),
 
   ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp).
   %hacer jugador_ficha jugaror_ficha_p
@@ -345,14 +345,15 @@ ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
   ultimo_turno(UltT),
   T1 is UltT+1,
 
-  nl,writeln(['  Mano siendo analizada: ',Mano]),
+  %nl,writeln(['  Mano siendo analizada: ',Mano]),
 
-  time(evaluate_and_choose_ab(Movidas,T1,4,-inf,inf,_,[Mv,Val])),
+  %time()
+  evaluate_and_choose_ab(Movidas,T1,4,-inf,inf,_,[Mv,Val]),
 
-  writeln(['    Movida: ',Mv,' Val: ',Val]),
+  %writeln(['    Movida: ',Mv,' Val: ',Val]),
 
-  time(ia_minimax_cambia_valor_movida(Mv,Val)),
-  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp).
+  ia_minimax_cambia_valor_movida(Mv,Val),
+  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp),!.
   %acaba alfabeta
 
 
@@ -393,3 +394,55 @@ evaluate_and_choose_ab/7
 alpha_beta/6
 cutoff/9
 */
+
+/*
+ _____
+/  __ \
+| /  \/ ___  _ __   ___ _   _ _ __ _ __ ___ _ __   ___ _   _
+| |    / _ \| '_ \ / __| | | | '__| '__/ _ \ '_ \ / __| | | |
+| \__/\ (_) | | | | (__| |_| | |  | | |  __/ | | | (__| |_| |
+ \____/\___/|_| |_|\___|\__,_|_|  |_|  \___|_| |_|\___|\__, |
+                                                        __/ |
+                                                       |___/
+Vamos a intentar calcular las manos en varios procesos paralelos...
+*/
+
+conc_evalua_4(Js,Resp):-
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+
+  %hay que dividir esta lista en cachitos.
+  findall(X,mano_posible_oculto(2,X),ManosOp),
+  length(ManosOp,Tam0),write('Numero de manos posibles: '),writeln(Tam0),
+  random_permutation(ManosOp, ManosOpPer),
+  div_4(ManosOpPer,L1,L2,L3,L4),
+
+  concurrent(4,[ia_minimax_evalua(Js,Movidas,L1,ManoIA,R1),
+                ia_minimax_evalua(Js,Movidas,L2,ManoIA,R2),
+                ia_minimax_evalua(Js,Movidas,L3,ManoIA,R3),
+                ia_minimax_evalua(Js,Movidas,L4,ManoIA,R4)],[]),
+  Resp = [R1,R2,R3,R4],!.
+
+primeros_n_ls([X1|L1],N,[X1|L2]):-
+  N > 0,
+  M is N-1,
+  primeros_n_ls(L1,M,L2),!.
+primeros_n_ls(_,0,[]):-!.
+
+div_4(L,A,B,C,D) :-
+  div(L,L1,L2),
+  div(L1,A,B),
+  div(L2,C,D).
+
+div(L, A, B) :-
+  length(L, N),
+  Half is N div 2,
+  length(A, Half),
+  length(B, Half),
+  append(A, B, L),!.
+div(L, A, B) :-
+  length(L, N),
+  Half is N div 2 + 1,
+  length(A, Half),
+  length(B, Half),
+  append(A, B, L).

@@ -4,7 +4,7 @@ main:-
     nuevo_juego,
     write('Prueba del predicado dinamico turno_p y su funcionalidad en minimax.pl'),
     asignar_jugadores(2),nl,
-    crea_ia_minimax(1,[[6,6],[6,0],[2,1],[3,3],[2,0],[5,3],[5,1]]),
+    crea_ia_minimax(1,[[6,6],[6,0],[2,1],[3,3],[2,0],[5,4],[5,1]]),
     crea_jugador_oculto(2),
     ia_minimax_juega(1,[6,6],0),
     jugador_oculto_juega(2,[6,1],1),
@@ -35,7 +35,7 @@ main2:-
     nuevo_juego,
     write('Prueba del predicado dinamico turno_p y su funcionalidad en minimax.pl'),
     asignar_jugadores(2),nl,
-    crea_ia_minimax(1,[[6,6],[6,0],[2,1],[3,3],[2,0],[5,3],[5,1]]),
+    crea_ia_minimax(1,[[6,6],[6,0],[2,1],[3,3],[2,0],[5,4],[5,1]]),
     crea_jugador_oculto(2),
     ia_minimax_juega(1,[6,6],0),
     jugador_oculto_juega(2,[6,1],1),
@@ -43,4 +43,4 @@ main2:-
     jugador_oculto_juega(2,[1,1],1),
     ia_minimax_juega(1,[5,1],1),
     jugador_oculto_juega(2,[4,0],2).
-:-main_debug.
+:-main.
