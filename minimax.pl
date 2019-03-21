@@ -138,8 +138,8 @@ jugar_turno_p(Jugador, Ficha, Lado):-
   ultimo_turno_p(UltT),
   NumTurno is UltT+1,
 
-  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL))
-  /*write('Turno probable: '),write(NumTurno),nl,
+  asserta(turno_p(Ficha,Jugador,Lado,NumTurno,LL))/*
+  write('Turno probable: '),write(NumTurno),nl,
   write('  Jugador:  '),write(Jugador),nl,
   write('  Ficha:    '),write(Ficha),nl,
   write('  Lado:     '),write(Lado),nl,
@@ -159,15 +159,12 @@ movidas_posibles([Fi|Mano],[[2,Fi]|Movidas]):-
   movidas_posibles(Mano,Movidas),!.
 movidas_posibles([_|Mano],Movidas):-
   movidas_posibles(Mano,Movidas).
-
-numero_fichas_jugador_oculto_p(Js,Num):-
-  numero_fichas_jugador_oculto(Js,Num1),
+numero_fichas_jugador_p(Js,Num):-
   (
-  (findall(X,turno_p(X,Js,_,_,_),JugadasP),!);
-  JugadasP = []
+  (findall(X,jugador_ficha_p(Js,X),Fis),!);
+  Fis = []
   ),
-  length(JugadasP,NumJP),
-  Num is Num1-NumJP.
+  length(Fis,Num).
 
 retraer_turnos_anteriores(Turno):-
   ultimo_turno_p(UltT),
@@ -195,10 +192,13 @@ movidas_posibles_minimax(Mvs):-
 /*
 Funcion de evaluacion basica para dos jugadores ocultos
 */
-evalua_1(Val):-
-  numero_fichas_jugador_oculto_p(1,J1),
-  numero_fichas_jugador_oculto_p(2,J2),
-  Val is J2-J1.
+evalua_1_2Js(Val):-
+  ultimo_jugador(J1),
+  jugador_turno_valido_p(J2),
+  numero_fichas_jugador_p(J1,F1),
+  numero_fichas_jugador_p(J2,F2),
+  Val is F1-F2.
+
 evalua_rand(Val):-
   random(X),
   Val is X*10.
@@ -236,18 +236,30 @@ evaluate_and_choose_ab([Mv|Movidas],Turno,D,Alfa,Beta,Mv1,Best):-
   jugar_turno_minimax(Mv,Turno),
   T1 is Turno + 1,
   alpha_beta(D,T1,Alfa,Beta,_,Val),
-  Val1 is Val,
+  Val1 is -Val,
   cutoff(Mv,Val1,D,Alfa,Beta,Movidas,Turno,Mv1,Best).
-%evaluate_and_choose_ab([],_,0,Alfa,_,Mv,[Mv,Alfa]).
+%llego al final del arbol
 evaluate_and_choose_ab([],_,_,Alfa,_,Mv,[Mv,Alfa]).
 alpha_beta(0,_,_,_,_,Val):-
-  evalua_rand(Val).
+  evalua_1_2Js(Val).
+%gano
+alpha_beta(D,_,_,_,_,Val):-
+  ultimo_jugador_p(Js),
+  numero_fichas_jugador_p(Js,0),
+  Val is D + 10.
+%normal
 alpha_beta(D,Turno,Alfa,Beta,Mv,Val):-
   movidas_posibles_minimax(Movidas),
+  \+(Movidas = []),
   Alfa1 is -Beta,
   Beta1 is -Alfa,
   D1 is D - 1,
-  evaluate_and_choose_ab(Movidas,Turno,D1,Alfa1,Beta1,nil,[Mv,Val]).
+  evaluate_and_choose_ab(Movidas,Turno,D1,Alfa1,Beta1,nil,[Mv,Val]),!.
+%no puede jugar
+alpha_beta(D,_,_,_,_,Val):-
+  evalua_1_2Js(V1),
+  Val is -V1-2-D.
+
 cutoff(Mv,Val,_,_,Beta,_,_,_,[Mv,Val]):-
   Val >= Beta.
 cutoff(Mv,Val,D,Alfa,Beta,Movidas,Turno,_,Best):-
@@ -315,28 +327,9 @@ ia_minimax_evalua(Js,Resp):-
 
   ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp).
   %hacer jugador_ficha jugaror_ficha_p
-%minimax
-/*
-ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
-  retractall(jugador_ficha_p(_,_)),
-  retractall(turno_p(_,_,_,_,_)),
-  asignar_fichas_p(Js,ManoIA),
-  jugador_oculto(Jo),
-  asignar_fichas_p(Jo,Mano),
-  ultimo_turno(UltT),
-  T1 is UltT+1,
 
-  nl,writeln(['  Mano siendo analizada: ',Mano]),
-
-  time(evaluate_and_choose(Movidas,T1,4,1,[nil,-100],[Mv,Val])),
-
-  writeln(['    Movida: ',Mv,' Val: ',Val]),
-
-  time(ia_minimax_cambia_valor_movida(Mv,Val)),
-  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp).*/
-  %acaba minimax
 %alfabeta
-ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
+ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp,D):-
   retractall(jugador_ficha_p(_,_)),
   retractall(turno_p(_,_,_,_,_)),
   asignar_fichas_p(Js,ManoIA),
@@ -348,16 +341,16 @@ ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp):-
   %nl,writeln(['  Mano siendo analizada: ',Mano]),
 
   %time()
-  evaluate_and_choose_ab(Movidas,T1,4,-inf,inf,_,[Mv,Val]),
+  evaluate_and_choose_ab(Movidas,T1,D,-100,100,_,[Mv,Val]),
 
   %writeln(['    Movida: ',Mv,' Val: ',Val]),
 
   ia_minimax_cambia_valor_movida(Mv,Val),
-  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp),!.
+  ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp,D),!.
   %acaba alfabeta
 
 
-ia_minimax_evalua(_,_,[],_,Resp):-
+ia_minimax_evalua(_,_,[],_,Resp,_):-
   findall(X,movida_minmax(_,X),ValMovidas),
   max_list(ValMovidas,MaxVal),
   movida_minmax(Resp,MaxVal),!.
@@ -368,32 +361,20 @@ ia_minimax_juega(Js,Fi,La):-
   lista_fichas_jugador(Fichas,Js),
   member(Fi,Fichas),
   jugar_turno(Js,Fi,La),!.
-/*
-  lista_fichas_jugador(ManoIA,1),
-  movidas_posibles(ManoIA,Movidas),
-  ia_minimax_acerta_movidas_ini(Movidas),
-  ManoOponente = [[3,2],[4,3],[3,1],[6,5],[2,2]],
-  asignar_fichas_p(1,ManoIA),
-  asignar_fichas_p(2,ManoOponente),
-  ultimo_turno(UltT),
-  T1 is UltT+1,
-  evaluate_and_choose(Movidas,T1,4,1,[nil,-inf],[Mv,Val]),
-  writeln([Mv,Val]),!.
-%manos oc
-*/
 
-prueba_minimax_wiri(Mano):-
-  lista_fichas_jugador(ManoIA,Js),
-  movidas_posibles(ManoIA,Movidas),
-  ia_minimax_acerta_movidas_ini(Movidas),
-  ia_minimax_evalua(Js,Movidas,[Mano],ManoIA,_).
-/*
-spy points:
-ia_minimax_evalua/5
-evaluate_and_choose_ab/7
-alpha_beta/6
-cutoff/9
-*/
+ia_minimax_juega_automatico(Js):-
+  conc_evalua_4(Js,Ri),
+  nth0(0,Ri,R0),
+  nth0(1,Ri,R1),
+  ia_minimax_juega(Js,R1,R0).
+ia_minimax_come(Js,Fi):-
+  jugador_asignar_ficha(Js,Fi).
+ia_minimax_pasa(Js):-
+  ia_minimax(Js),
+  jugador_turno_valido(Js),
+  pasar_turno(Js).
+
+
 
 /*
  _____ _                        _ _
@@ -419,26 +400,67 @@ ___  ___      _ _   _ _   _                        _
 */
 
 conc_evalua_4(Js,Resp):-
+  retractall(movida_minmax(_,_)),
   lista_fichas_jugador(ManoIA,Js),
   movidas_posibles(ManoIA,Movidas),
 
-  %hay que dividir esta lista en cachitos.
   findall(X,mano_posible_oculto(2,X),ManosOp),
-  length(ManosOp,Tam0),write('Numero de manos posibles: '),writeln(Tam0),
+  length(ManosOp,Tam0),
+  Tam0>100,
+  write('Numero de manos posibles: '),
+  writeln(Tam0),nl,
   random_permutation(ManosOp, ManosOpPer),
-  div_4(ManosOpPer,L1,L2,L3,L4),
+  primeros_n_ls(ManosOpPer,5000,LsFin),
+  div_4(LsFin,L1,L2,L3,L4),
+  concurrent(4,[ia_minimax_evalua_conc(Js,Movidas,L1,ManoIA,R1),
+                ia_minimax_evalua_conc(Js,Movidas,L2,ManoIA,R2),
+                ia_minimax_evalua_conc(Js,Movidas,L3,ManoIA,R3),
+                ia_minimax_evalua_conc(Js,Movidas,L4,ManoIA,R4)],[]),
+  cambia_valores_mvs_conc(R1),
+  cambia_valores_mvs_conc(R2),
+  cambia_valores_mvs_conc(R3),
+  cambia_valores_mvs_conc(R4),
+  ia_minimax_evalua(_,_,[],_,Resp,_),
+  listing(movida_minmax),
+  write('Resultado:'),writeln(Resp),nl,!.
 
-  concurrent(4,[ia_minimax_evalua(Js,Movidas,L1,ManoIA,R1),
-                ia_minimax_evalua(Js,Movidas,L2,ManoIA,R2),
-                ia_minimax_evalua(Js,Movidas,L3,ManoIA,R3),
-                ia_minimax_evalua(Js,Movidas,L4,ManoIA,R4)],[]),
-  Resp = [R1,R2,R3,R4],!.
+conc_evalua_4(Js,Resp):-
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+
+  findall(X,mano_posible_oculto(2,X),ManosOp),
+  length(ManosOp,Tam0),
+  write('Numero de manos posibles bajo: '),write(Tam0),
+  writeln('Se va a usar la definicion alternativa (sin concurrencia D=10)'),
+  ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp,10).
+
+
+cambia_valores_mvs_conc([Hi|Ls]):-
+  nth0(0,Hi,H0),
+  nth0(1,Hi,H1),
+  ia_minimax_cambia_valor_movida(H0,H1),
+  cambia_valores_mvs_conc(Ls).
+cambia_valores_mvs_conc([]).
+
+ia_minimax_evalua_conc(Js,Movidas,L1,ManoIA,LsMovs):-
+  ia_minimax_evalua(Js,Movidas,L1,ManoIA,_,4),
+  ls_movidas_minmax(LsMovs).
+
+ls_movidas_minmax(Ls):-
+  findall(X,movida_minmax(X,_),L1),
+  findall(Y,movida_minmax(_,Y),L2),
+  zip_2_ls(L1,L2,Ls).
+zip_2_ls([X|Xl],[Y|Yl],[[X,Y]|Ls]):-
+  zip_2_ls(Xl,Yl,Ls).
+zip_2_ls([],[],[]).
 
 primeros_n_ls([X1|L1],N,[X1|L2]):-
   N > 0,
   M is N-1,
   primeros_n_ls(L1,M,L2),!.
+primeros_n_ls([],_,[]):-!.
 primeros_n_ls(_,0,[]):-!.
+
 
 div_4(L,A,B,C,D) :-
   div(L,L1,L2),

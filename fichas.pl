@@ -423,8 +423,7 @@ jugar_turno(Jugador, Ficha, Lado) :-
   write('  LadoLibre:'),write(LL),nl.
 
 /*
-pasar_turno(iJ) :- Hace que el jugador iJ pase. Solamente se debe llamar cuando
-                   un jugador no puede ni comer ni poner ficha.
+pasar_turno(iJ) :- Hace que el jugador iJ pase. Solamente se debe llamar cuando un jugador no puede ni comer ni poner ficha.
 */
 pasar_turno(Js) :-
   jugador(Js),
@@ -543,8 +542,8 @@ jugador_oculto_come(Js):-
   %cuando come, dejamos de saber cuales no tiene
   retractall(jugador_oculto_no_tiene(Js,_)),
   %pero si sabemos que no tiene las que no pudo jugar
-  ultima_ficha_lado(UltF1,1),
-  ultima_ficha_lado(UltF2,2),
+  ultima_ficha_lado(1,UltF1),
+  ultima_ficha_lado(2,UltF2),
   ficha_num_libre(UltF1,X1),
   ficha_num_libre(UltF2,X2),
   asserta(jugador_oculto_no_tiene(Js,X1)),

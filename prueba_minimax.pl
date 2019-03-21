@@ -11,7 +11,7 @@ main:-
     ia_minimax_juega(1,[6,0],2),
     jugador_oculto_juega(2,[1,1],1).
 main_debug:-
-  main,
+  main2,
   guitracer,
   spy(ia_minimax_evalua/5),
   spy(evaluate_and_choose_ab/7),
@@ -43,4 +43,4 @@ main2:-
     jugador_oculto_juega(2,[1,1],1),
     ia_minimax_juega(1,[5,1],1),
     jugador_oculto_juega(2,[4,0],2).
-:-main.
+:-main2.
