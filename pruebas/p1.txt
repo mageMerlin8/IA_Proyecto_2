@@ -1,0 +1,27 @@
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[6,4]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[4,4]
+Turno: 1
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 38760
+

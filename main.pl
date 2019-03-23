@@ -14,8 +14,17 @@ setup_2_js:-
   writeln('Jugador #2 es oculto.'),nl,
   write('Por favor ingresa la lista de fichas del jugador.'),
   writeln('(Recuerda que las fichas son una lista de dos numeros menores a 6 y el primero es mayor o igual al segundo):'),
-  read(LsFich),
+  lee_fichas(LsFich,7),
   crea_ia_minimax(1,LsFich).
+
+setup_p_2_js:-
+  nuevo_juego,
+  asignar_jugadores(2),
+  crea_jugador_oculto(2),
+  lista_fichas_aleatorias(LsFich,7),
+  crea_ia_minimax(1,LsFich),
+  lista_fichas_aleatorias(LJug,7),
+  write('lista fichas del jugador: '),writeln(LJug).
 
 
 prueba:-
@@ -40,3 +49,11 @@ Instrucciones:
 1.
 
 */
+lee_fichas([],0).
+lee_fichas([Fi|Lf],N):-
+  write('Dame primer numero:  '),read(F1),
+  write('Dame segundo numero: '),read(F2),
+  Fi = [F1,F2],
+  ficha(Fi),
+  M is N-1,
+  lee_fichas(Lf,M).

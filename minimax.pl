@@ -27,6 +27,24 @@ turno_p(ficha, jugador, lado, num_turno, lado_libre):-
 :-dynamic
   ia_minimax/1.
   %movida_minmax(mv,num)
+nuevo_juego :-
+  retractall(jugador_ficha(_,_)),
+  retractall(turno(_,_,_,_,_)),
+  retractall(jugador_oculto_no_tiene(_,_)),
+  retractall(oculto_comio(_,_)),
+  retractall(jugador(_)),
+  retractall(max_jugadores(_)),
+  retractall(ia_basico(_)),
+  retractall(jugador_persona(_)),
+  retractall(jugador_oculto(_)),
+  retractall(ia_minimax(_)),
+  assert(turno(0,0,0,0,0)).
+
+lista_fichas_aleatorias(Fis,Tam0):-
+  lista_fichas_disponibles(Disp),
+  random_permutation(Disp,Rand),
+  primeros_n_ls(Rand,Tam0,Fis).
+
 asignar_fichas_p(Js,[Fi|Mano]):-
   asserta(jugador_ficha_p(Js,Fi)),
   asignar_fichas_p(Js,Mano).
@@ -56,22 +74,29 @@ primer_turno_p(T):-
 primer_turno_p(inf).
 
 ultima_ficha_lado_p(Lado,Ficha):-
-  ultimo_turno_p(T),
-  primer_turno_p(T1),
-  T < T1,
-  ultima_ficha_lado(Lado,Ficha),!.
-
-ultima_ficha_lado_p(Lado, Ficha) :-
-  ultimo_turno_p(T),
-  (
-  (turno_p(Ficha,_,Lado,T,_),!);
-  (T1 is T-1,ultima_ficha_lado_p(Lado, Ficha, T1))
-  ).
-%Funciones auxiliares
-ultima_ficha_lado_p(Lado,Ficha,T):-
-  primer_turno_p(PT),
-  T < PT,
-  ultima_ficha_lado(Lado, Ficha, T),!.
+  findall(X,turno_p(_,_,Lado,X,_),Ls),
+  max_list(Ls,T),
+  turno_p(Ficha,_,_,T,_),!.
+ultima_ficha_lado_p(Lado,Ficha):-
+  ultima_ficha_lado(Lado,Ficha).
+%
+% ultima_ficha_lado_p(Lado,Ficha):-
+%   ultimo_turno_p(T),
+%   primer_turno_p(T1),
+%   T < T1,
+%   ultima_ficha_lado(Lado,Ficha),!.
+%
+% ultima_ficha_lado_p(Lado, Ficha) :-
+%   ultimo_turno_p(T),
+%   (
+%   (turno_p(Ficha,_,Lado,T,_),!);
+%   (T1 is T-1,ultima_ficha_lado_p(Lado, Ficha, T1))
+%   ).
+% %Funciones auxiliares
+% ultima_ficha_lado_p(Lado,Ficha,T):-
+%   primer_turno_p(PT),
+%   T < PT,
+%   ultima_ficha_lado(Lado, Ficha, T),!.
 %TODO: Considerar quitar el caso donde turno es -1 ya que el primer turno_p no sera menor a 0
 ultima_ficha_lado_p(_, Ficha, -1):-
   turno_p(Ficha,_,_,1,_),!.
@@ -79,32 +104,33 @@ ultima_ficha_lado_p(Lado, Ficha, T) :-
   (turno_p(Ficha,_,Lado,T,_),!);
   (T1 is T-1,ultima_ficha_lado_p(Lado, Ficha, T1)).
 
+ficha_num_libre_p(F,Li):-
+  turno(F,_,_,_,_),
+  ficha_num_libre(F,Li).
 ficha_num_libre_p([X,Y],X):-
-  (
-  turno([X,Y],_,_,_,1);
-  turno_p([X,Y],_,_,_,1)
-  ),!.
+  turno_p([X,Y],_,_,_,1),!.
 ficha_num_libre_p([X,Y],Y):-
-  (
-  turno([X,Y],_,_,_,2);
-  turno_p([X,Y],_,_,_,2)
-  ),!.
-ficha_num_libre_p([X,Y],X):-
-  (
-  turno([X,Y],_,0,1,0);
-  turno_p([X,Y],_,0,1,0)
-  ),\+turno(_,_,1,_,_),!.
-ficha_num_libre_p([X,Y],Y):-
-  (
-  turno([X,Y],_,0,1,0);
-  turno_p([X,Y],_,0,1,0)
-  ),\+turno(_,_,2,_,_),!.
+  turno_p([X,Y],_,_,_,2),!.
 
+ficha_num_libre_p([X,Y],Y):-
+  (
+  turno([X,Y],_,0,1,0);
+  turno_p([X,Y],_,0,1,0)
+  ),
+  \+turno(_,_,2,_,_),
+  \+(turno([Y,_],_,1,_,2);
+     turno([_,Y],_,1,_,2)).
+
+
+ficha_turno_valida_p(Ficha, Lado, LL):-
+  ultima_ficha_lado(Lado, UltimaFicha),
+  turno(UltimaFicha,_,_,_,UltLibre),
+  UltLibre is 0,!,
+  ficha_turno_valida(Ficha,Lado,LL),!.
 ficha_turno_valida_p(Ficha, Lado, 1):-
   ultima_ficha_lado_p(Lado,UFicha),
   ficha_num_libre_p(UFicha,ULibre),
   nth1(2, Ficha, ULibre),!.
-
 ficha_turno_valida_p(Ficha, Lado, 2):-
   ultima_ficha_lado_p(Lado,UFicha),
   ficha_num_libre_p(UFicha,ULibre),
@@ -159,6 +185,7 @@ movidas_posibles([Fi|Mano],[[2,Fi]|Movidas]):-
   movidas_posibles(Mano,Movidas),!.
 movidas_posibles([_|Mano],Movidas):-
   movidas_posibles(Mano,Movidas).
+
 numero_fichas_jugador_p(Js,Num):-
   (
   (findall(X,jugador_ficha_p(Js,X),Fis),!);
@@ -362,11 +389,43 @@ ia_minimax_juega(Js,Fi,La):-
   member(Fi,Fichas),
   jugar_turno(Js,Fi,La),!.
 
+%esta de abajo juega una ficha aleatoria cuando es el primer turno
+%se usa para las pruebas.
 ia_minimax_juega_automatico(Js):-
-  conc_evalua_4(Js,Ri),
+  ultimo_turno(UltT),
+  UltT = 0,
+  random(N),
+  E is floor(N*7)+1,
+  lista_fichas_jugador(Mano,Js),
+  nth1(E,Mano,Esc),
+  ia_minimax_juega(Js,Esc,0).
+ia_minimax_juega_automatico(Js):-
+  %ultimo_turno(UltT),
+  %UltT > 0,
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+  length(Movidas,N),
+  N=1,
+  nth0(0,Movidas,Mov),
+  nth0(0,Mov,R0),
+  nth0(1,Mov,R1),
+  ia_minimax_juega(Js,R1,R0),!.
+ia_minimax_juega_automatico(Js):-
+  %ultimo_turno(UltT),
+  %UltT > 0,
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+  length(Movidas,N),
+  N=0,!,fail.
+
+ia_minimax_juega_automatico(Js):-
+  ultimo_turno(UltT),
+  UltT > 0,
+  time(conc_evalua_4(Js,Ri)),
   nth0(0,Ri,R0),
   nth0(1,Ri,R1),
-  ia_minimax_juega(Js,R1,R0).
+  ia_minimax_juega(Js,R1,R0),!.
+
 ia_minimax_come(Js,Fi):-
   jugador_asignar_ficha(Js,Fi).
 ia_minimax_pasa(Js):-
@@ -398,6 +457,10 @@ ___  ___      _ _   _ _   _                        _
 | |  | | |_| | | |_| | |_| | | | | |  __/ (_| | (_| |/ /
 \_|  |_/\__,_|_|\__|_|\__|_| |_|_|  \___|\__,_|\__,_/___|
 */
+break_here_plz.
+conc_evalua_4(_,_):-
+  findall(X,mano_posible_oculto(2,X),ManosOp),
+  ManosOp = [], break_here_plz.
 
 conc_evalua_4(Js,Resp):-
   retractall(movida_minmax(_,_)),
@@ -430,9 +493,13 @@ conc_evalua_4(Js,Resp):-
 
   findall(X,mano_posible_oculto(2,X),ManosOp),
   length(ManosOp,Tam0),
-  write('Numero de manos posibles bajo: '),write(Tam0),
+  Tam0>0,
+  Tam0<101,
+  write('Numero de manos posibles bajo: '),writeln(Tam0),
   writeln('Se va a usar la definicion alternativa (sin concurrencia D=10)'),
-  ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp,10).
+  ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp,10),
+  listing(movida_minmax),
+  write('Resultado:'),writeln(Resp),nl,!.
 
 
 cambia_valores_mvs_conc([Hi|Ls]):-
@@ -466,6 +533,12 @@ div_4(L,A,B,C,D) :-
   div(L,L1,L2),
   div(L1,A,B),
   div(L2,C,D).
+div_3(L, A, B, C):-
+  length(L, N),
+  T is N div 3,
+  length(A, T),
+  length(B, T),
+  length(C, T).
 
 div(L, A, B) :-
   length(L, N),
@@ -475,7 +548,8 @@ div(L, A, B) :-
   append(A, B, L),!.
 div(L, A, B) :-
   length(L, N),
-  Half is N div 2 + 1,
-  length(A, Half),
-  length(B, Half),
+  H1 is (N div 2) + 1,
+  H2 is H1-1,
+  length(A, H1),
+  length(B, H2),
   append(A, B, L).

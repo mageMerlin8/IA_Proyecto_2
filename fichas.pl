@@ -232,16 +232,16 @@ lado(0).
 nuevo_juego :- Predicado para empezar un juego nuevo. Restaura todos los
                predicados dinamicos a los valores iniciales.
 */
-nuevo_juego :-
-  retractall(jugador_ficha(_,_)),
-  retractall(turno(_,_,_,_,_)),
-  retractall(oculto_comio(_,_)),
-  retractall(jugador(_)),
-  retractall(max_jugadores(_)),
-  retractall(ia_basico(_)),
-  retractall(jugador_persona(_)),
-  retractall(jugador_oculto(_)),
-  assert(turno(0,0,0,0,0)).
+% nuevo_juego :-
+%   retractall(jugador_ficha(_,_)),
+%   retractall(turno(_,_,_,_,_)),
+%   retractall(oculto_comio(_,_)),
+%   retractall(jugador(_)),
+%   retractall(max_jugadores(_)),
+%   retractall(ia_basico(_)),
+%   retractall(jugador_persona(_)),
+%   retractall(jugador_oculto(_)),
+%   assert(turno(0,0,0,0,0)).
 /*
 juega(iJ) :- intenta hacer jugar al siguiente jugador. Llama todas las Funciones
              *_juega/1 hasta que una sea verdadera. Es falsa si no es posible hacer jugar a ese jugador.
@@ -314,11 +314,25 @@ ultimo_jugador(oJ) :- Regresa el numero del ultimo jugador (oJ).
 ultimo_jugador(J) :-
   ultimo_turno(T),
   turno(_,J,_,T,_).
-
+  /*,
+  \+Fi = 0,!.
+ultimo_jugador(J) :-
+  ultimo_turno(T),
+  T1 is T-1,
+  turno(_,J,_,T1,_).*/
 /*
 ultima_ficha_lado(iL, oF) :- Funcion que regresa (oF) la ultima ficha que se
                              jugo en el lado iL.
 */
+ultima_ficha_lado(Lado,Ficha):-
+  findall(X,turno(_,_,Lado,X,_),Ls),
+  max_list(Ls,T),
+  turno(Ficha,_,_,T,_),!.
+ultima_ficha_lado(_,Ficha):-
+  findall(X,turno(X,_,0,_,_),Ls),
+  member(Ficha,Ls),
+  ficha(Ficha).
+  /*
 ultima_ficha_lado(Lado, Ficha) :-
   ultimo_turno(T),
   (turno(Ficha,_,Lado,T,_),!;
@@ -329,7 +343,7 @@ ultima_ficha_lado(_, Ficha, -1):-
   turno(Ficha,_,_,1,_),!.
 ultima_ficha_lado(Lado, Ficha, T) :-
   (turno(Ficha,_,Lado,T,_),!);
-  (T1 is T-1,ultima_ficha_lado(Lado, Ficha, T1)).
+  (T1 is T-1,ultima_ficha_lado(Lado, Ficha, T1)).*/
 /*
 ficha_num_libre(iF,oN) :- oN es el numero que esta libre de la ficha iF. iF es
                           una ficha jugada.
@@ -340,10 +354,10 @@ ficha_num_libre([X,Y],Y):-
   turno([X,Y],_,_,_,2),!.
 ficha_num_libre([X,Y],X):-
   turno([X,Y],_,0,1,0),
-  \+turno(_,_,1,_,_),!.
+  \+turno(_,_,1,_,_).
 ficha_num_libre([X,Y],Y):-
   turno([X,Y],_,0,1,0),
-  \+turno(_,_,2,_,_),!.
+  \+turno(_,_,2,_,_).
 
 
 /*
@@ -356,28 +370,33 @@ ficha_turno_valida(iF, iL, uLL) :- Funcion para validar un turno. Toma una ficha
 ficha_turno_valida(_,_,0):-
   ultimo_turno(Ult), Ult is 0,!.
 ficha_turno_valida(Ficha, Lado, LL):-
-  %TODO: se pueden cambiar las 4 lineas de abajo por una llamada a ultima_ficha_lado
   ultima_ficha_lado(Lado, UltimaFicha),
   turno(UltimaFicha,_,_,_,UltLibre),
-
-  UltLibre is 0,
+  UltLibre is 0,!,
   nth1(Lado,UltimaFicha,NumeroUltimaFicha),
   (
   (nth1(1,Ficha,NumeroUltimaFicha), LL is 2,!);
   (nth1(2,Ficha,NumeroUltimaFicha), LL is 1,!)
   ).
-ficha_turno_valida(Ficha, Lado, LL) :-
-  %TODO: se pueden cambiar las 4 lineas de abajo por una llamada a ultima_ficha_lado
-  %ficha y lado
-  ultima_ficha_lado(Lado, UltimaFicha),
-  turno(UltimaFicha, _, _, _, UltLibre),
+ficha_turno_valida(Ficha, Lado, 1):-
+  ultima_ficha_lado(Lado,Uf),
+  ficha_num_libre(Uf,Ul),
+  nth1(2,Ficha,Ul),!.
+ficha_turno_valida(Ficha, Lado, 2) :-
+  ultima_ficha_lado(Lado,Uf),
+  ficha_num_libre(Uf,Ul),
+  nth1(1,Ficha,Ul),!.
 
-  nth1(UltLibre, UltimaFicha, NumeroLlibre),
-  %member(NumeroLlibre, Ficha)
-  (
-  (nth1(1,Ficha,NumeroLlibre), LL is 2,!);
-  (nth1(2,Ficha,NumeroLlibre), LL is 1,!)
-  ).
+ % %ficha y lado
+  % ultima_ficha_lado(Lado, UltimaFicha),
+  % turno(UltimaFicha, _, _, _, UltLibre),
+  %
+  % nth1(UltLibre, UltimaFicha, NumeroLlibre),
+  % %member(NumeroLlibre, Ficha)
+  % (
+  % (nth1(1,Ficha,NumeroLlibre), LL is 2,!);
+  % (nth1(2,Ficha,NumeroLlibre), LL is 1,!)
+  % ).
 
 /*
 jugador_turno_valido(uJ) :- Predicado que es verdadero cuando es turno del
@@ -432,7 +451,7 @@ pasar_turno(Js) :-
   asserta(turno(0,Js,0,NumT,0)),
   write('Turno: '),write(NumT),nl,
   write('  Jugador:  '),write(Js),nl,
-  write('  El jugador pasa su turno.').
+  writeln('  El jugador pasa su turno.').
 /*
 ______
 | ___ \
@@ -579,12 +598,14 @@ lista_fichas_disponibles_oculto(Js,Ls):-
 lista_fichas_sin_lista([],[]).
 lista_fichas_sin_lista(Resp, [Num|Lnumeros]):-
   lista_fichas_sin_lista(FichasP,Lnumeros),
-  setof(X, ficha_sin(X,Num), FichasN),
+  setof(X, ficha_con(X,Num), FichasN),
   union(FichasP,FichasN,Resp).
-ficha_sin([X|Y],Num):-
+ficha_con([X|Y],Num):-
   ficha([X|Y]),
-  X =\= Num,
-  Y =\= Num.
+  X =:= Num.
+ficha_con([X,Y],Num):-
+  ficha([X|Y]),
+  Y =:= Num.
 
 
 numero_fichas_jugador_oculto(Js, Num) :-
