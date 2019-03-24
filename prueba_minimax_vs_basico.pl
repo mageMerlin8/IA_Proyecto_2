@@ -25,12 +25,13 @@ play_n(N, W, L, T):-
   play,
   M is N-1,
   (
-  (winner(1), play_n(M, W1, L, T), W is W1+1,!);
-  (winner(2), play_n(M, W, L1, T), L is L1+1,!);
-  (tie,       play_n(M, W, L, T1), T is T1+1,!)
+  (winner(1), play_n(M, W1, L, T), W is W1+1,nl,writeln('ganamos!'),!);
+  (winner(2), play_n(M, W, L1, T), L is L1+1,nl, writeln('perdimos :('),!);
+  (tie,       play_n(M, W, L, T1), T is T1+1,nl,writeln('empate...'),!)
   ).
 
-
+play:-
+  ultimo_turno(T),T>100,!.
 play:-
   jugador_turno_valido(1),
   ia_minimax_play(1),fail.
@@ -47,7 +48,7 @@ play:-play.
 winner(1):-
   ganador(1).
 winner(2):-
-  lista_fichas_jugador_o(2,Ls),Ls=[].
+  lista_fichas_jugador_o(2,Ls),Ls=[],ganador(2).
 tie:-
   them_moves(1,X),X=[],
   them_moves(2,Y),Y=[],

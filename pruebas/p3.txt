@@ -1,0 +1,55 @@
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[4,2]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[4,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 2]], 569).
+movida_minmax([1, [1, 0]], -4963).
+
+Resultado:[2,[3,2]]
+
+% 1,112,330 inferences, 0.343 CPU in 34.307 seconds (1% CPU, 3244106 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? Unknown option (h for help)

@@ -1,27 +1,152 @@
-Ficha Asignada: J-1 F-[5,1]
-Ficha Asignada: J-1 F-[2,1]
-Ficha Asignada: J-1 F-[3,0]
-Ficha Asignada: J-1 F-[2,0]
-Ficha Asignada: J-1 F-[1,0]
-Ficha Asignada: J-1 F-[6,1]
-Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[4,4]
 Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[1,1]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[5,2]
 Ficha_o Asignada: J-2 F-[6,5]
-Ficha_o Asignada: J-2 F-[3,2]
-Ficha_o Asignada: J-2 F-[4,2]
-Ficha_o Asignada: J-2 F-[5,3]
-Ficha_o Asignada: J-2 F-[4,1]
-Ficha_o Asignada: J-2 F-[4,3]
-Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[5,5]
 Turno: 1
   Jugador:  1
-  Ficha:    [1,0]
+  Ficha:    [3,1]
   Lado:     0
   LadoLibre:0
 Turno: 2
   Jugador:  2
-  Ficha:    [4,1]
+  Ficha:    [3,3]
   Lado:     1
-  LadoLibre:1
+  LadoLibre:2
 Numero de manos posibles: 38760
 
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 3]], 37).
+movida_minmax([1, [6, 3]], -7094).
+movida_minmax([1, [3, 2]], -10710).
+
+Resultado:[1,[5,3]]
+
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 2]], -1321).
+movida_minmax([1, [3, 2]], -4024).
+movida_minmax([1, [2, 2]], -2491).
+
+Resultado:[1,[6,2]]
+
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,3]
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[6,1]
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 45
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 4]], 424).
+movida_minmax([2, [6, 6]], 324).
+
+Resultado:[2,[6,4]]
+
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,1]
+Turno: 14
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 28
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+Ficha Asignada: J-1 F-[4,2]
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[5,0]
+Turno: 15
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 16
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Turno: 18
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Ganador: 2Ganador: 2

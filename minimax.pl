@@ -273,7 +273,7 @@ alpha_beta(0,_,_,_,_,Val):-
 alpha_beta(D,_,_,_,_,Val):-
   ultimo_jugador_p(Js),
   numero_fichas_jugador_p(Js,0),
-  Val is D + 10.
+  Val is D + 15.
 %normal
 alpha_beta(D,Turno,Alfa,Beta,Mv,Val):-
   movidas_posibles_minimax(Movidas),
@@ -285,7 +285,7 @@ alpha_beta(D,Turno,Alfa,Beta,Mv,Val):-
 %no puede jugar
 alpha_beta(D,_,_,_,_,Val):-
   evalua_1_2Js(V1),
-  Val is -V1-2-D.
+  Val is -V1-5-D.
 
 cutoff(Mv,Val,_,_,Beta,_,_,_,[Mv,Val]):-
   Val >= Beta.

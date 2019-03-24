@@ -1,0 +1,5793 @@
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[5,3]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[2,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 1]], 14368).
+movida_minmax([2, [1, 1]], 5495).
+
+Resultado:[1,[6,1]]
+
+% 1,112,580 inferences, 0.281 CPU in 101.068 seconds (0% CPU, 3952764 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[1,0]
+Turno: 4
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 92378
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 1]], -42340).
+
+Resultado:[2,[1,1]]
+
+% 3,583,937 inferences, 0.505 CPU in 35.061 seconds (1% CPU, 7092427 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 24310
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 2]], -4857).
+movida_minmax([2, [5, 3]], 1049).
+movida_minmax([1, [5, 3]], -38934).
+
+Resultado:[2,[5,3]]
+
+% 739,933 inferences, 0.116 CPU in 39.073 seconds (0% CPU, 6400282 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[0,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[3,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 0]], 42).
+movida_minmax([1, [5, 0]], 1008).
+movida_minmax([1, [2, 0]], 3241).
+movida_minmax([1, [1, 0]], 12371).
+
+Resultado:[1,[1,0]]
+
+% 1,113,017 inferences, 0.247 CPU in 113.033 seconds (0% CPU, 4498616 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 0]], 9009).
+movida_minmax([2, [5, 0]], 15937).
+
+Resultado:[2,[5,0]]
+
+% 72,389 inferences, 0.013 CPU in 12.160 seconds (0% CPU, 5437055 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[1,1]
+Ficha_o Asignada: J-2 F-[4,0]
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 2380
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 4]], 7).
+movida_minmax([2, [5, 4]], -37532).
+
+Resultado:[2,[6,4]]
+
+% 1,068,316 inferences, 0.091 CPU in 15.698 seconds (1% CPU, 11760350 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[3,1]
+Turno: 13
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 14
+  Jugador:  2
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,5]
+Turno: 15
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Turno: 16
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[6,1]
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 1]], -21).
+
+Resultado:[1,[6,1]]
+
+% 34,908 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 5586861 Lips)
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 18
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 9
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 10,866 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7154808 Lips)
+Jugador minimax pasa
+Turno: 19
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 20
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 7
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], -175).
+
+Resultado:[1,[5,2]]
+
+% 18,077 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 5022212 Lips)
+Turno: 23
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[6,3]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[4,4]
+Turno: 1
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 1]], 3960).
+movida_minmax([1, [1, 1]], 4284).
+movida_minmax([1, [1, 0]], -393).
+
+Resultado:[1,[1,1]]
+
+% 1,112,281 inferences, 0.230 CPU in 52.160 seconds (0% CPU, 4842255 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 1]], -2654).
+movida_minmax([1, [5, 0]], 1584).
+
+Resultado:[1,[5,0]]
+
+% 256,272 inferences, 0.044 CPU in 23.176 seconds (0% CPU, 5784411 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[6,5]
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 6188
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 3]], -10600).
+movida_minmax([1, [2, 1]], -10559).
+
+Resultado:[1,[2,1]]
+
+% 148,088 inferences, 0.032 CPU in 14.340 seconds (0% CPU, 4672135 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[4,2]
+Numero de manos posibles: 364
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 2]], 1305).
+movida_minmax([1, [4, 2]], -459).
+
+Resultado:[2,[4,2]]
+
+% 11,103 inferences, 0.003 CPU in 0.217 seconds (1% CPU, 4093934 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 14
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 15
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[2,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[5,5]
+Turno: 1
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 3]], 1799).
+movida_minmax([1, [3, 2]], 11163).
+
+Resultado:[1,[3,2]]
+
+% 1,112,779 inferences, 0.231 CPU in 84.424 seconds (0% CPU, 4816404 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[4,2]
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 8008
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 3]], -642).
+movida_minmax([1, [3, 3]], -31114).
+
+Resultado:[1,[6,3]]
+
+% 205,372 inferences, 0.041 CPU in 10.754 seconds (0% CPU, 5048051 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[5,2]
+Numero de manos posibles: 792
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], -27).
+
+Resultado:[1,[5,2]]
+
+% 25,679 inferences, 0.005 CPU in 0.763 seconds (1% CPU, 5140398 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Turno: 13
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     1
+  LadoLibre:2
+Turno: 14
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[1,1]
+Turno: 16
+  Jugador:  2
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,0]
+Turno: 18
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,0]
+Numero de manos posibles bajo: 35
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 0]], -45).
+movida_minmax([2, [4, 0]], 210).
+
+Resultado:[2,[4,0]]
+
+% 244,253 inferences, 0.027 CPU in 0.027 seconds (100% CPU, 8938511 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,3]
+Turno: 20
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[6,5]
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 5,799 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 8024709 Lips)
+Ficha Asignada: J-1 F-[6,6]
+Numero de manos posibles bajo: 4
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 3]], 61).
+
+Resultado:[2,[3,3]]
+
+% 101,968 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 9191894 Lips)
+Turno: 21
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,4]
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 6]], 15).
+
+Resultado:[1,[6,6]]
+
+% 27,263 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 8822740 Lips)
+Turno: 23
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 3
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 0]], -46).
+movida_minmax([1, [6, 5]], 15).
+
+Resultado:[1,[6,5]]
+
+% 24,894 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 8918777 Lips)
+Turno: 25
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Turno: 26
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 2
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 0]], -50).
+
+Resultado:[1,[3,0]]
+
+% 7,648 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 8020588 Lips)
+Turno: 27
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[0,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[2,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 4]], 3295).
+movida_minmax([2, [3, 1]], 7860).
+movida_minmax([2, [5, 1]], 889).
+movida_minmax([1, [6, 0]], 6705).
+
+Resultado:[2,[3,1]]
+
+% 1,113,001 inferences, 0.233 CPU in 62.320 seconds (0% CPU, 4771719 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 1]], 15452).
+movida_minmax([1, [5, 1]], 7385).
+
+Resultado:[2,[5,1]]
+
+% 72,502 inferences, 0.011 CPU in 2.928 seconds (0% CPU, 6453008 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,1]
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[5,5]
+Turno: 11
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 13
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[4,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[1,0]
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 16
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 35
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [0, 0]], 279).
+movida_minmax([2, [6, 0]], 131).
+movida_minmax([2, [5, 0]], 76).
+
+Resultado:[2,[0,0]]
+
+% 922,678 inferences, 0.115 CPU in 0.115 seconds (100% CPU, 8044664 Lips)
+Turno: 17
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 18
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 15
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 41,427 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 9301236 Lips)
+Ficha Asignada: J-1 F-[6,3]
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 0]], 44).
+movida_minmax([1, [3, 3]], 100).
+movida_minmax([2, [6, 0]], 22).
+movida_minmax([1, [6, 3]], 15).
+
+Resultado:[1,[3,3]]
+
+% 189,154 inferences, 0.020 CPU in 0.020 seconds (100% CPU, 9445679 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[3,0]
+Turno: 20
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 6,520 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 8535685 Lips)
+Jugador minimax pasa
+Turno: 21
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 22
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 23
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 24
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 0]], 15).
+
+Resultado:[1,[5,0]]
+
+% 12,655 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 8291456 Lips)
+Turno: 25
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 2
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 0]], 30).
+
+Resultado:[1,[6,0]]
+
+% 14,677 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 8859205 Lips)
+Turno: 27
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 6]], -25).
+
+Resultado:[1,[6,6]]
+
+% 5,051 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7308945 Lips)
+Turno: 29
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[4,2]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[3,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[6,3]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 0]], 2658).
+movida_minmax([1, [4, 2]], 1299).
+movida_minmax([2, [3, 0]], -8452).
+
+Resultado:[2,[6,0]]
+
+% 1,112,431 inferences, 0.223 CPU in 43.880 seconds (1% CPU, 4978329 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 2]], 1133).
+movida_minmax([2, [3, 0]], -9401).
+
+Resultado:[1,[4,2]]
+
+% 255,843 inferences, 0.040 CPU in 10.546 seconds (0% CPU, 6328219 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 5]], 1234).
+movida_minmax([2, [3, 0]], -623).
+
+Resultado:[1,[6,5]]
+
+% 72,626 inferences, 0.014 CPU in 3.495 seconds (0% CPU, 5267984 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[5,1]
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 1001
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 0]], 453).
+movida_minmax([1, [1, 1]], -1432).
+
+Resultado:[2,[3,0]]
+
+% 27,672 inferences, 0.004 CPU in 0.334 seconds (1% CPU, 6371396 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[2,1]
+Turno: 13
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[2,0]
+Turno: 15
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 16
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,2]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[3,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[6,3]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 5]], 483).
+movida_minmax([2, [6, 2]], 7542).
+movida_minmax([1, [4, 2]], 6518).
+movida_minmax([2, [6, 0]], 5732).
+
+Resultado:[2,[6,2]]
+
+% 1,112,903 inferences, 0.232 CPU in 66.014 seconds (0% CPU, 4802715 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 2]], -22487).
+
+Resultado:[1,[4,2]]
+
+% 255,444 inferences, 0.039 CPU in 17.314 seconds (0% CPU, 6494687 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[4,1]
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 13
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 1]], 249).
+
+Resultado:[1,[5,1]]
+
+% 37,389 inferences, 0.008 CPU in 0.008 seconds (100% CPU, 4866263 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[2,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[5,4]
+Numero de manos posibles bajo: 8
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 7,140 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 5146588 Lips)
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[1,1]
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 16
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[5,3]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[1,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 3]], 81).
+movida_minmax([2, [3, 0]], -17456).
+movida_minmax([2, [3, 2]], 3748).
+
+Resultado:[2,[3,2]]
+
+% 1,112,473 inferences, 0.226 CPU in 34.339 seconds (1% CPU, 4918647 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,4]
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 2380
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 0]], 1092).
+movida_minmax([1, [2, 0]], 4746).
+
+Resultado:[1,[2,0]]
+
+% 57,787 inferences, 0.009 CPU in 2.809 seconds (0% CPU, 6491350 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 560
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 2]], 419).
+movida_minmax([1, [2, 2]], 1508).
+
+Resultado:[1,[2,2]]
+
+% 15,551 inferences, 0.003 CPU in 0.289 seconds (1% CPU, 5799528 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[5,1]
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 13
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Turno: 15
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[1,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[6,6]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 1]], 868).
+movida_minmax([1, [2, 0]], 4611).
+movida_minmax([1, [0, 0]], -4512).
+
+Resultado:[1,[2,0]]
+
+% 524,641 inferences, 0.103 CPU in 26.954 seconds (0% CPU, 5094440 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,1]
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 6188
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 2]], -949).
+movida_minmax([1, [2, 2]], -35119).
+
+Resultado:[1,[3,2]]
+
+% 148,204 inferences, 0.025 CPU in 10.902 seconds (0% CPU, 5943583 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[6,4]
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Turno: 13
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 1]], 72).
+movida_minmax([2, [1, 1]], 141).
+
+Resultado:[2,[1,1]]
+
+% 34,462 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 5305860 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[3,0]
+Turno: 16
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 17
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[1,0]
+Turno: 18
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 19
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,0]
+Turno: 20
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,0]
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,2]
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 25
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 26
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 36
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+% 912 inferences, 0.000 CPU in 0.000 seconds (99% CPU, 6132577 Lips)
+Turno: 37
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[4,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[6,4]
+Turno: 1
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 1]], 1048).
+movida_minmax([2, [5, 3]], 4806).
+movida_minmax([2, [3, 2]], 848).
+
+Resultado:[2,[5,3]]
+
+% 1,112,474 inferences, 0.223 CPU in 45.096 seconds (0% CPU, 4994932 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 2]], 3011).
+movida_minmax([2, [5, 5]], 3046).
+movida_minmax([1, [4, 1]], 3926).
+
+Resultado:[1,[4,1]]
+
+% 256,192 inferences, 0.042 CPU in 35.029 seconds (0% CPU, 6130846 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 2]], -4912).
+movida_minmax([2, [5, 5]], -4).
+
+Resultado:[2,[5,5]]
+
+% 72,630 inferences, 0.017 CPU in 6.556 seconds (0% CPU, 4264751 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 120
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 2]], 413).
+movida_minmax([2, [3, 2]], 479).
+
+Resultado:[2,[3,2]]
+
+% 5,059 inferences, 0.001 CPU in 0.024 seconds (5% CPU, 3811121 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[4,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[1,1]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[6,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 1]], -29069).
+
+Resultado:[1,[2,1]]
+
+% 1,112,142 inferences, 0.214 CPU in 8.982 seconds (2% CPU, 5198711 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 7
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[2,2]
+Turno: 8
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 8008
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 0]], -6702).
+movida_minmax([2, [4, 0]], -31894).
+
+Resultado:[2,[5,0]]
+
+% 205,447 inferences, 0.036 CPU in 11.724 seconds (0% CPU, 5632179 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[5,4]
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 5005
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 4]], 1818).
+movida_minmax([2, [4, 0]], -63187).
+
+Resultado:[2,[4,4]]
+
+% 139,594 inferences, 0.028 CPU in 2.295 seconds (1% CPU, 4976592 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[2,0]
+Turno: 13
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 14
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 15
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[4,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[0,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 3]], 3665).
+movida_minmax([2, [6, 5]], 11842).
+movida_minmax([1, [5, 4]], 3968).
+
+Resultado:[2,[6,5]]
+
+% 1,112,402 inferences, 0.230 CPU in 47.240 seconds (0% CPU, 4846939 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 3]], -409).
+movida_minmax([2, [3, 0]], -6189).
+
+Resultado:[2,[6,3]]
+
+% 72,559 inferences, 0.013 CPU in 5.919 seconds (0% CPU, 5566634 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 9
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,0]
+Turno: 13
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[6,1]
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[1,0]
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 16
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[1,1]
+Turno: 17
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[2,1]
+Turno: 18
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 19
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[0,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[5,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 5]], 2050).
+movida_minmax([2, [5, 3]], 5652).
+movida_minmax([1, [4, 0]], -5082).
+
+Resultado:[2,[5,3]]
+
+% 1,112,469 inferences, 0.230 CPU in 34.568 seconds (1% CPU, 4847343 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 2]], 8537).
+movida_minmax([1, [3, 2]], 18080).
+
+Resultado:[1,[3,2]]
+
+% 255,540 inferences, 0.041 CPU in 18.229 seconds (0% CPU, 6183707 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 5]], 4458).
+movida_minmax([2, [3, 3]], 843).
+
+Resultado:[1,[6,5]]
+
+% 72,616 inferences, 0.015 CPU in 3.096 seconds (0% CPU, 4870728 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[3,1]
+Turno: 8
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 9
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,1]
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[2,1]
+Turno: 14
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,2]
+Numero de manos posibles: 126
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], 54).
+movida_minmax([2, [5, 2]], 1080).
+
+Resultado:[2,[5,2]]
+
+% 7,471 inferences, 0.002 CPU in 0.033 seconds (5% CPU, 4523922 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[5,1]
+Turno: 16
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,1]
+Turno: 17
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 18
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,4]
+Numero de manos posibles bajo: 70
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], 150).
+movida_minmax([1, [5, 4]], 125).
+
+Resultado:[2,[5,4]]
+
+% 453,490 inferences, 0.048 CPU in 0.048 seconds (100% CPU, 9498249 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 20
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,3]
+Numero de manos posibles bajo: 20
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 26,016 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9476670 Lips)
+Ficha Asignada: J-1 F-[5,5]
+Turno: 21
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 23
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 24
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[3,0]
+Turno: 25
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 26
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:2
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[5,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[3,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 4]], 126).
+movida_minmax([1, [2, 1]], 4205).
+movida_minmax([2, [4, 1]], 2358).
+
+Resultado:[1,[2,1]]
+
+% 1,112,463 inferences, 0.219 CPU in 33.662 seconds (1% CPU, 5073706 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 1]], -7856).
+movida_minmax([2, [4, 4]], 1034).
+
+Resultado:[2,[4,4]]
+
+% 255,730 inferences, 0.040 CPU in 18.120 seconds (0% CPU, 6392779 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[3,0]
+Turno: 9
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 78
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 2]], 778).
+movida_minmax([2, [4, 3]], 483).
+
+Resultado:[2,[3,2]]
+
+% 539,210 inferences, 0.072 CPU in 0.072 seconds (100% CPU, 7496448 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[6,1]
+Jugador prueba pasa
+Turno: 12
+  Jugador:  2
+  El jugador pasa su turno.
+% 5,029 inferences, 0.000 CPU in 0.000 seconds (100% CPU, 12668591 Lips)
+% 11,849 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 12324107 Lips)
+Jugador minimax pasa
+Turno: 13
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 14
+  Jugador:  2
+  El jugador pasa su turno.
+% 5,048 inferences, 0.000 CPU in 0.000 seconds (100% CPU, 12764204 Lips)
+% 11,885 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 12479891 Lips)
+Jugador minimax pasa
+Turno: 15
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 16
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 18,750 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 12080851 Lips)
+Jugador minimax pasa
+Turno: 17
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 18
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 55
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [1, 1]], -1026).
+movida_minmax([1, [4, 1]], -17).
+
+Resultado:[1,[4,1]]
+
+% 5,315,224 inferences, 0.571 CPU in 0.573 seconds (100% CPU, 9316329 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 20
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 165
+
+% 29,504 inferences, 0.003 CPU in 0.005 seconds (64% CPU, 9567100 Lips)
+Jugador minimax pasa
+Turno: 21
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles: 330
+
+% 29,722 inferences, 0.004 CPU in 0.004 seconds (83% CPU, 8137389 Lips)
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles: 462
+
+% 27,754 inferences, 0.004 CPU in 0.004 seconds (87% CPU, 7676907 Lips)
+Jugador minimax pasa
+Turno: 25
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles: 462
+
+% 22,516 inferences, 0.003 CPU in 0.004 seconds (83% CPU, 7430219 Lips)
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles: 330
+
+% 15,394 inferences, 0.002 CPU in 0.003 seconds (85% CPU, 7227827 Lips)
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 30
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 120
+
+% 7,790 inferences, 0.001 CPU in 0.002 seconds (80% CPU, 6026869 Lips)
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 45
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 7,297 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 8370673 Lips)
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 34
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 35
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Turno: 36
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Jugador minimax pasa
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 38
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:2
+Jugador minimax pasa
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 40
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 41
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 42
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 43
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[1,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 0]], -11336).
+movida_minmax([2, [4, 0]], -2317).
+
+Resultado:[2,[4,0]]
+
+% 1,112,317 inferences, 0.218 CPU in 30.680 seconds (1% CPU, 5101275 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], 2874).
+movida_minmax([1, [6, 5]], 5391).
+movida_minmax([2, [4, 3]], -321).
+
+Resultado:[1,[6,5]]
+
+% 256,172 inferences, 0.042 CPU in 43.813 seconds (0% CPU, 6152664 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[5,0]
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 3003
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], 2712).
+movida_minmax([2, [4, 3]], 1330).
+movida_minmax([1, [1, 0]], -2268).
+
+Resultado:[2,[5,4]]
+
+% 80,453 inferences, 0.021 CPU in 7.370 seconds (0% CPU, 3860223 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[5,5]
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[5,3]
+Turno: 11
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 36
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [1, 1]], 347).
+movida_minmax([1, [1, 0]], 152).
+movida_minmax([2, [4, 3]], 82).
+movida_minmax([1, [4, 1]], 110).
+
+Resultado:[1,[1,1]]
+
+% 819,361 inferences, 0.093 CPU in 0.094 seconds (99% CPU, 8809355 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 8
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 15,557 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 9821834 Lips)
+Ficha Asignada: J-1 F-[3,0]
+Numero de manos posibles bajo: 7
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 1]], 24).
+movida_minmax([1, [1, 0]], 117).
+
+Resultado:[1,[1,0]]
+
+% 26,409 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9232728 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 16
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[0,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[3,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 3
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 5]], -17178).
+movida_minmax([2, [6, 6]], -2801).
+
+Resultado:[2,[6,6]]
+
+% 524,681 inferences, 0.099 CPU in 20.042 seconds (0% CPU, 5280970 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 7
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[6,3]
+Numero de manos posibles: 220
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 3]], 1414).
+
+Resultado:[1,[6,3]]
+
+% 9,432 inferences, 0.002 CPU in 0.320 seconds (1% CPU, 5520652 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 55
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 4]], 251).
+movida_minmax([1, [6, 0]], 654).
+movida_minmax([1, [6, 5]], 200).
+
+Resultado:[1,[6,0]]
+
+% 830,421 inferences, 0.089 CPU in 0.089 seconds (100% CPU, 9326564 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 210
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 2]], 44).
+movida_minmax([2, [2, 2]], 805).
+movida_minmax([2, [2, 1]], 360).
+
+Resultado:[2,[2,2]]
+
+% 9,845 inferences, 0.002 CPU in 0.398 seconds (0% CPU, 5459899 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[4,2]
+Turno: 14
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 36
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 4]], 121).
+movida_minmax([2, [5, 4]], -403).
+
+Resultado:[2,[6,4]]
+
+% 6,914,527 inferences, 0.747 CPU in 0.748 seconds (100% CPU, 9254398 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[4,3]
+Jugador prueba pasa
+Turno: 16
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 9
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 12,710 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 10804424 Lips)
+Jugador minimax pasa
+Turno: 17
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 18
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 8
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 1]], 120).
+
+Resultado:[1,[2,1]]
+
+% 230,657 inferences, 0.024 CPU in 0.024 seconds (100% CPU, 9668358 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 20
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 28
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 9,224 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9280117 Lips)
+Jugador minimax pasa
+Turno: 21
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 56
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], -1142).
+
+Resultado:[1,[5,2]]
+
+% 1,397,784 inferences, 0.151 CPU in 0.151 seconds (100% CPU, 9284751 Lips)
+Turno: 23
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Turno: 25
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     1
+  LadoLibre:2
+Turno: 26
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 36
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 38
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 40
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 41
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 42
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 43
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 44
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 45
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 46
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 47
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 48
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 49
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 50
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 51
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 52
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 53
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 54
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 55
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 56
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 57
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 58
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 59
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 60
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 61
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 62
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 63
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 64
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 65
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 66
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 67
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 68
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 69
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 70
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 71
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 72
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 73
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 74
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 75
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 76
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 77
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 78
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 79
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 80
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 81
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 82
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 83
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 84
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 85
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 86
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 87
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 88
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 89
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 90
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 91
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 92
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 93
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 94
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 95
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 96
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 97
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 98
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 99
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 100
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 101
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 102
+  Jugador:  2
+  El jugador pasa su turno.
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Goal (directive) failed: user:(play_n(1,_308,_310,_312),halt)
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+ERROR: '$raw_read'/2: I/O error in read on stream user_input (Input/output error)
+ERROR: I/O error in read on stream user_input (Input/output error)
+ERROR: In:
+ERROR:    [8] throw(error(io_error(read,user_input),context(...,'Input/output error')))
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[1,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[2,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 3
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,2]
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[3,0]
+Numero de manos posibles: 1820
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 0]], -6198).
+
+Resultado:[1,[3,0]]
+
+% 314,569 inferences, 0.050 CPU in 2.662 seconds (2% CPU, 6298073 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 455
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 5]], 849).
+movida_minmax([2, [5, 4]], 983).
+
+Resultado:[2,[5,4]]
+
+% 14,173 inferences, 0.002 CPU in 0.310 seconds (1% CPU, 6586762 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 13
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 1]], 219).
+movida_minmax([2, [6, 5]], 48).
+
+Resultado:[2,[6,1]]
+
+% 40,191 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 9139463 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 11
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 14,121 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9881556 Lips)
+Ficha Asignada: J-1 F-[5,5]
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 1]], 147).
+movida_minmax([1, [6, 5]], 48).
+
+Resultado:[2,[1,1]]
+
+% 32,761 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9438131 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 16
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[2,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[5,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 4]], 917).
+movida_minmax([2, [5, 0]], -5149).
+movida_minmax([1, [5, 3]], 1750).
+movida_minmax([1, [5, 0]], 6138).
+
+Resultado:[1,[5,0]]
+
+% 1,112,509 inferences, 0.228 CPU in 46.770 seconds (0% CPU, 4876711 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 7
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 680
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], 617).
+movida_minmax([2, [5, 3]], -1147).
+
+Resultado:[2,[5,4]]
+
+% 17,947 inferences, 0.003 CPU in 0.274 seconds (1% CPU, 6539713 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 120
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 3]], -96).
+movida_minmax([2, [3, 3]], 21).
+
+Resultado:[2,[3,3]]
+
+% 5,077 inferences, 0.001 CPU in 0.019 seconds (5% CPU, 5156053 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[1,0]
+Numero de manos posibles bajo: 12
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [1, 0]], 153).
+movida_minmax([2, [1, 0]], 72).
+
+Resultado:[1,[1,0]]
+
+% 36,334 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 9188876 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[0,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 15
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,2]
+Turno: 16
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[6,4]
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 18
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 19
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 20
+  Jugador:  2
+  El jugador pasa su turno.
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Turno: 23
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[4,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[6,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 1]], 3958).
+movida_minmax([1, [1, 1]], 8397).
+
+Resultado:[1,[1,1]]
+
+% 1,112,229 inferences, 0.220 CPU in 50.623 seconds (0% CPU, 5052305 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 0]], 4125).
+movida_minmax([1, [4, 1]], -9207).
+
+Resultado:[2,[6,0]]
+
+% 256,026 inferences, 0.040 CPU in 17.387 seconds (0% CPU, 6474209 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[5,2]
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[6,3]
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[4,3]
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 28
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 1]], 336).
+movida_minmax([2, [4, 4]], 118).
+
+Resultado:[2,[4,1]]
+
+% 231,979 inferences, 0.035 CPU in 0.035 seconds (100% CPU, 6712069 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[1,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 28
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 7,699 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 8285034 Lips)
+Ficha Asignada: J-1 F-[3,3]
+Turno: 15
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 16
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 17
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 18
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 19
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[6,4]
+Turno: 20
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 23
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[6,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[3,0]
+Turno: 1
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 3]], -1092).
+movida_minmax([1, [3, 3]], -4465).
+movida_minmax([1, [3, 1]], -2668).
+
+Resultado:[1,[4,3]]
+
+% 1,112,321 inferences, 0.217 CPU in 32.533 seconds (1% CPU, 5135660 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[2,0]
+Turno: 8
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 1365
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 1]], -13).
+movida_minmax([1, [3, 1]], -6322).
+
+Resultado:[1,[5,1]]
+
+% 36,046 inferences, 0.006 CPU in 0.784 seconds (1% CPU, 6013782 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[1,0]
+Numero de manos posibles: 220
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [1, 0]], -5).
+
+Resultado:[1,[1,0]]
+
+% 9,115 inferences, 0.002 CPU in 0.112 seconds (1% CPU, 5864765 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 55
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 1]], 644).
+movida_minmax([2, [3, 1]], 149).
+movida_minmax([2, [3, 3]], 154).
+
+Resultado:[1,[3,1]]
+
+% 492,464 inferences, 0.052 CPU in 0.052 seconds (100% CPU, 9541398 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 14,455 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9901831 Lips)
+Ficha Asignada: J-1 F-[0,0]
+Numero de manos posibles bajo: 9
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 3]], 171).
+
+Resultado:[2,[3,3]]
+
+% 31,486 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9550746 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[6,3]
+Turno: 16
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+% 1,252 inferences, 0.000 CPU in 0.000 seconds (100% CPU, 9337221 Lips)
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 18
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[1,1]
+Jugador minimax pasa
+Turno: 19
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 20
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 21
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:1
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 24
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:2
+
+empate...
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[2,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[4,4]
+Turno: 1
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 3
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], -3437).
+movida_minmax([2, [4, 3]], 6759).
+
+Resultado:[2,[4,3]]
+
+% 524,655 inferences, 0.096 CPU in 17.517 seconds (1% CPU, 5457375 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], -2625).
+movida_minmax([2, [5, 3]], 3511).
+
+Resultado:[2,[5,3]]
+
+% 72,487 inferences, 0.011 CPU in 3.551 seconds (0% CPU, 6658130 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[1,1]
+Turno: 11
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,1]
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[5,1]
+Numero de manos posibles bajo: 28
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 1]], 484).
+
+Resultado:[1,[5,1]]
+
+% 245,816 inferences, 0.027 CPU in 0.027 seconds (100% CPU, 9241544 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[5,2]
+Turno: 14
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 15
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 31,472 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9924331 Lips)
+Ficha Asignada: J-1 F-[4,2]
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 2]], 90).
+movida_minmax([1, [4, 2]], 52).
+movida_minmax([1, [6, 2]], 15).
+
+Resultado:[1,[2,2]]
+
+% 126,158 inferences, 0.013 CPU in 0.013 seconds (100% CPU, 9693623 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[1,0]
+Turno: 16
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 8,398 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9217106 Lips)
+Jugador minimax pasa
+Turno: 17
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 18
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 0]], 18).
+
+Resultado:[2,[5,0]]
+
+% 79,130 inferences, 0.008 CPU in 0.008 seconds (100% CPU, 9800028 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 20
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], 20).
+
+Resultado:[2,[5,4]]
+
+% 29,098 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9360327 Lips)
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 3
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 44,896 inferences, 0.005 CPU in 0.005 seconds (100% CPU, 9400638 Lips)
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 24
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 2
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 0]], 39).
+
+Resultado:[1,[3,0]]
+
+% 14,963 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 9322579 Lips)
+Turno: 25
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 17,481 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 9903413 Lips)
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 28
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+% 650 inferences, 0.000 CPU in 0.000 seconds (100% CPU, 6939477 Lips)
+Turno: 29
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+% 662 inferences, 0.000 CPU in 0.000 seconds (100% CPU, 7094783 Lips)
+Turno: 31
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 32
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Ganador: 2Ganador: 2
+perdimos :(
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[6,4]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[1,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     0
+  LadoLibre:0
+Ficha_o Asignada: J-2 F-[4,0]
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 77520
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 4]], 350).
+movida_minmax([2, [5, 4]], 1071).
+movida_minmax([2, [4, 1]], 3688).
+
+Resultado:[2,[4,1]]
+
+% 2,058,289 inferences, 0.423 CPU in 49.136 seconds (1% CPU, 4860346 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[0,0]
+Turno: 5
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 4368
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 2]], 152).
+movida_minmax([2, [6, 6]], 3694).
+movida_minmax([2, [6, 1]], 529).
+movida_minmax([2, [6, 4]], 4447).
+
+Resultado:[2,[6,4]]
+
+% 110,865 inferences, 0.023 CPU in 56.960 seconds (0% CPU, 4878521 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 364
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 2]], 84).
+movida_minmax([1, [5, 2]], 1055).
+movida_minmax([2, [5, 2]], 1369).
+
+Resultado:[2,[5,2]]
+
+% 11,472 inferences, 0.003 CPU in 0.367 seconds (1% CPU, 4104568 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 66
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 1]], 125).
+movida_minmax([1, [6, 6]], 510).
+
+Resultado:[1,[6,6]]
+
+% 531,197 inferences, 0.058 CPU in 0.058 seconds (100% CPU, 9211262 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[6,5]
+Turno: 16
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:2
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[3,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[5,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 5]], 2086).
+movida_minmax([1, [3, 1]], 5145).
+
+Resultado:[1,[3,1]]
+
+% 1,112,358 inferences, 0.219 CPU in 33.750 seconds (1% CPU, 5088281 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 0]], -7483).
+movida_minmax([2, [2, 2]], -1356).
+
+Resultado:[2,[2,2]]
+
+% 255,691 inferences, 0.040 CPU in 21.068 seconds (0% CPU, 6469477 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,3]
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 6188
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 4]], 531).
+movida_minmax([2, [2, 0]], -7861).
+movida_minmax([1, [6, 1]], 3964).
+
+Resultado:[1,[6,1]]
+
+% 148,879 inferences, 0.031 CPU in 21.077 seconds (0% CPU, 4863611 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[2,1]
+Turno: 11
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 220
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 5]], 347).
+movida_minmax([1, [2, 0]], -54).
+
+Resultado:[2,[5,5]]
+
+% 8,492 inferences, 0.002 CPU in 0.119 seconds (2% CPU, 4560521 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 55
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], 208).
+movida_minmax([2, [2, 0]], 376).
+
+Resultado:[2,[2,0]]
+
+% 252,327 inferences, 0.027 CPU in 0.027 seconds (100% CPU, 9363030 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 16
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 17
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     1
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[5,4]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[5,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[5,5]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 4]], 2242).
+movida_minmax([1, [5, 2]], 3681).
+movida_minmax([1, [5, 3]], 2462).
+movida_minmax([2, [3, 0]], 16152).
+
+Resultado:[2,[3,0]]
+
+% 1,113,016 inferences, 0.235 CPU in 143.962 seconds (0% CPU, 4729091 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], 1362).
+movida_minmax([1, [5, 4]], 35).
+movida_minmax([1, [5, 3]], 11604).
+movida_minmax([2, [5, 3]], 20268).
+
+Resultado:[2,[5,3]]
+
+% 255,802 inferences, 0.041 CPU in 26.523 seconds (0% CPU, 6282674 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [5, 4]], -107).
+movida_minmax([2, [5, 2]], -6450).
+
+Resultado:[2,[5,4]]
+
+% 72,639 inferences, 0.014 CPU in 5.550 seconds (0% CPU, 5202314 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 680
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 2]], 1577).
+movida_minmax([2, [4, 0]], 1020).
+
+Resultado:[1,[5,2]]
+
+% 17,867 inferences, 0.003 CPU in 0.239 seconds (1% CPU, 6142983 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[6,3]
+Turno: 11
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles bajo: 11
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 0]], 171).
+movida_minmax([2, [6, 1]], 48).
+
+Resultado:[2,[6,0]]
+
+% 36,108 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 9066648 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[1,1]
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 126
+
+% 10,429 inferences, 0.001 CPU in 0.002 seconds (82% CPU, 7199882 Lips)
+Ficha Asignada: J-1 F-[3,1]
+Numero de manos posibles bajo: 56
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 9,157 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9378751 Lips)
+Ficha Asignada: J-1 F-[4,2]
+Numero de manos posibles bajo: 21
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [4, 0]], 5).
+movida_minmax([1, [6, 1]], 32).
+
+Resultado:[1,[6,1]]
+
+% 4,287,683 inferences, 0.450 CPU in 0.450 seconds (100% CPU, 9522859 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[2,0]
+Ficha_o Asignada: J-2 F-[1,0]
+Jugador prueba pasa
+Turno: 16
+  Jugador:  2
+  El jugador pasa su turno.
+Turno: 17
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 18
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 19
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 20
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     1
+  LadoLibre:2
+Jugador minimax pasa
+Turno: 21
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 25
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 36
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 38
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 40
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 41
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 42
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 43
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 44
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 45
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 46
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 47
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 48
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 49
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 50
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 51
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 52
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 53
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 54
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 55
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 56
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 57
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 58
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 59
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 60
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 61
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 62
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 63
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 64
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 65
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 66
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 67
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 68
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 69
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 70
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 71
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 72
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 73
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 74
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 75
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 76
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 77
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 78
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 79
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 80
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 81
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 82
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 83
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 84
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 85
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 86
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 87
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 88
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 89
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 90
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 91
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 92
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 93
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 94
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 95
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 96
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 97
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 98
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 99
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 100
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 101
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 102
+  Jugador:  2
+  El jugador pasa su turno.
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Goal (directive) failed: user:(play_n(1,_308,_310,_312),halt)
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[6,5]
+Ficha Asignada: J-1 F-[4,2]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[4,4]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[2,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 1]], 567).
+movida_minmax([2, [6, 5]], 5507).
+movida_minmax([1, [2, 1]], 6421).
+
+Resultado:[1,[2,1]]
+
+% 1,112,476 inferences, 0.216 CPU in 34.737 seconds (1% CPU, 5139508 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], 80).
+movida_minmax([1, [4, 2]], 5802).
+
+Resultado:[1,[4,2]]
+
+% 255,813 inferences, 0.041 CPU in 39.414 seconds (0% CPU, 6306190 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 0]], 575).
+movida_minmax([1, [4, 4]], 6777).
+
+Resultado:[1,[4,4]]
+
+% 72,528 inferences, 0.016 CPU in 6.229 seconds (0% CPU, 4579803 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[4,3]
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 2380
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 0]], -6146).
+movida_minmax([1, [3, 1]], 6042).
+
+Resultado:[1,[3,1]]
+
+% 57,774 inferences, 0.008 CPU in 2.740 seconds (0% CPU, 6999310 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 560
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 0]], 432).
+movida_minmax([1, [2, 0]], 2322).
+
+Resultado:[1,[2,0]]
+
+% 15,296 inferences, 0.003 CPU in 0.113 seconds (2% CPU, 6035432 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[6,2]
+Turno: 12
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:2
+Ganador: 1Ganador: 1
+ganamos!
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[2,2]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[5,0]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[4,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 0]], -4664).
+movida_minmax([2, [6, 2]], 3121).
+movida_minmax([2, [2, 2]], 7003).
+
+Resultado:[2,[2,2]]
+
+% 1,112,814 inferences, 0.218 CPU in 62.163 seconds (0% CPU, 5098398 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [2,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 6]], 2662).
+movida_minmax([1, [6, 2]], 5863).
+movida_minmax([1, [6, 0]], 166).
+
+Resultado:[1,[6,2]]
+
+% 72,609 inferences, 0.012 CPU in 6.392 seconds (0% CPU, 6230805 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[4,1]
+Numero de manos posibles: 364
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 1]], 567).
+
+Resultado:[1,[4,1]]
+
+% 12,043 inferences, 0.002 CPU in 0.234 seconds (1% CPU, 5965410 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles bajo: 78
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], 821).
+movida_minmax([1, [6, 0]], 412).
+
+Resultado:[1,[2,0]]
+
+% 412,317 inferences, 0.045 CPU in 0.045 seconds (100% CPU, 9265549 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[4,0]
+Ficha_o Asignada: J-2 F-[0,0]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[5,3]
+Jugador prueba pasa
+Turno: 12
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 13
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 14
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 15
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 16
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 17
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 18
+  Jugador:  2
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 19
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 20
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:2
+Jugador minimax pasa
+Turno: 21
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 22
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     2
+  LadoLibre:2
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 25
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 36
+  Jugador:  2
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Jugador minimax pasa
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 38
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 40
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 41
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 42
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 43
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 44
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 45
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 46
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 47
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 48
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 49
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 50
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 51
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 52
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 53
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 54
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 55
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 56
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 57
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 58
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Turno: 59
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 60
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 61
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 62
+  Jugador:  2
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 63
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Turno: 64
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 65
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Ganador: 1Ganador: 1
+ganamos!
+EOF: exit (status 4)

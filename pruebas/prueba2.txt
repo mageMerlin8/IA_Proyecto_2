@@ -1,0 +1,573 @@
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Singleton variables: [X,Y,Z]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[6,4]
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[3,1]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[6,6]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[4,4]
+Ficha_o Asignada: J-2 F-[5,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[3,2]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,5]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:2
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 11628
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 1]], 3336).
+movida_minmax([1, [1, 0]], 2654).
+movida_minmax([1, [0, 0]], -307).
+
+Resultado:[2,[3,1]]
+
+% 524,677 inferences, 0.104 CPU in 31.620 seconds (0% CPU, 5042481 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 3060
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [1, 0]], 1650).
+movida_minmax([2, [6, 4]], 4891).
+movida_minmax([1, [0, 0]], -3595).
+
+Resultado:[2,[6,4]]
+
+% 72,483 inferences, 0.011 CPU in 6.857 seconds (0% CPU, 6385599 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     2
+  LadoLibre:1
+Turno: 8
+  Jugador:  2
+  Ficha:    [6,1]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 680
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 0]], 1676).
+movida_minmax([1, [0, 0]], 1183).
+movida_minmax([1, [1, 0]], 2196).
+
+Resultado:[1,[1,0]]
+
+% 17,799 inferences, 0.003 CPU in 0.276 seconds (1% CPU, 6412644 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[4,2]
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [4,4]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[2,0]
+Ficha Asignada: J-1 F-[6,2]
+Ficha Asignada: J-1 F-[4,0]
+Turno: 13
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,0]
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 9
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 6]], 48).
+movida_minmax([1, [6, 2]], 123).
+
+Resultado:[1,[6,2]]
+
+% 30,409 inferences, 0.004 CPU in 0.004 seconds (100% CPU, 8603042 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[3,3]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[5,1]
+Ficha_o Asignada: J-2 F-[4,3]
+Turno: 16
+  Jugador:  2
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,5]
+Numero de manos posibles bajo: 7
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 8,048 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 9633051 Lips)
+Ficha Asignada: J-1 F-[6,3]
+Numero de manos posibles bajo: 1
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 5]], 15).
+
+Resultado:[2,[6,5]]
+
+% 109,210 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 9700975 Lips)
+Turno: 17
+  Jugador:  1
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:1
+Turno: 18
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 6
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 6]], 75).
+movida_minmax([1, [2, 0]], 15).
+
+Resultado:[2,[6,6]]
+
+% 190,202 inferences, 0.019 CPU in 0.019 seconds (100% CPU, 9893644 Lips)
+Turno: 19
+  Jugador:  1
+  Ficha:    [6,6]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[1,1]
+Jugador prueba pasa
+Turno: 20
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 6
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [2, 0]], 80).
+
+Resultado:[1,[2,0]]
+
+% 111,432 inferences, 0.011 CPU in 0.011 seconds (100% CPU, 9804118 Lips)
+Turno: 21
+  Jugador:  1
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:2
+Jugador prueba pasa
+Turno: 22
+  Jugador:  2
+  El jugador pasa su turno.
+Numero de manos posibles bajo: 15
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+% 26,373 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 9796554 Lips)
+Jugador minimax pasa
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 24
+  Jugador:  2
+  Ficha:    [3,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 10
+Se va a usar la definicion alternativa (sin concurrencia D=10)
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 3]], 150).
+
+Resultado:[1,[6,3]]
+
+% 58,171 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 9785595 Lips)
+Turno: 25
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     1
+  LadoLibre:1
+Jugador prueba pasa
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 36
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 38
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 40
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 41
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 42
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 43
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 44
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 45
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 46
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 47
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 48
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 49
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 50
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 51
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 52
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 53
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 54
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 55
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 56
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 57
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 58
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 59
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 60
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 61
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 62
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 63
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 64
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 65
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 66
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 67
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 68
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 69
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 70
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 71
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 72
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 73
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 74
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 75
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 76
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 77
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 78
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 79
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 80
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 81
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 82
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 83
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 84
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 85
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 86
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 87
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 88
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 89
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 90
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 91
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 92
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 93
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 94
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 95
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 96
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 97
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 98
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 99
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 100
+  Jugador:  2
+  El jugador pasa su turno.
+Jugador minimax pasa
+Turno: 101
+  Jugador:  1
+  El jugador pasa su turno.
+Jugador prueba pasa
+Turno: 102
+  Jugador:  2
+  El jugador pasa su turno.
+Warning: /home/emiliomena/Documents/IA/Proyecto_2/prueba_minimax_vs_basico.pl:138:
+	Goal (directive) failed: user:(play_n(1,_308,_310,_312),halt)
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.0.2)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+Action (h for help) ? EOF: exit (status 4)
