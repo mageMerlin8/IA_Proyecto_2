@@ -1,4 +1,13 @@
 :-include(minimax).
+setup_competencia:-
+  retractall(jugador_ficha_o(_,_)),
+  nuevo_juego,
+  asignar_jugadores(2),
+  crea_ia_minimax(1),
+  crea_jugador_oculto(2),
+  writeln('Ingresa la lista de fichas de ia:'),
+  read(X),
+  asignar_fichas_minimax(1,X).
 
 setup:-
   retractall(jugador_ficha_o(_,_)),
@@ -27,7 +36,8 @@ play_n(N, W, L, T):-
   (
   (winner(1), play_n(M, W1, L, T), W is W1+1,nl,writeln('ganamos!'),!);
   (winner(2), play_n(M, W, L1, T), L is L1+1,nl, writeln('perdimos :('),!);
-  (tie,       play_n(M, W, L, T1), T is T1+1,nl,writeln('empate...'),!)
+  ((tie;(ultimo_turno(T),T>=100)),
+              play_n(M, W, L, T1), T is T1+1,nl,writeln('empate...'),!)
   ).
 
 play:-
@@ -108,7 +118,6 @@ jugador_prueba_juega(Js):-
   jugador_prueba_juega(Js),!.
 jugador_prueba_juega(Js):-
   %tiene que pasar (tssssss)
-  writeln('Jugador prueba pasa'),
   jugador_oculto_pasa(Js),!.
 
 ia_minimax_play(Js):-
@@ -120,7 +129,6 @@ ia_minimax_play(Js):-
   ia_minimax_come(Js,Fi),ia_minimax_play(Js),!.
 ia_minimax_play(Js):-
   %tiene que pasar (tssssss)
-  writeln('Jugador minimax pasa'),
   ia_minimax_pasa(Js),!.
 
 the_pot(Pot):-
@@ -135,4 +143,11 @@ gimme(Fi):-
   primeros_n_ls(P,1,[Fi]),!.
 gimme(_):-!,fail.
 
-:- play_n(1,X,Y,Z),halt.
+
+prueba_f:-
+  play_n(3,X,Y,Z),
+  writeln('W: '),writeln(X),
+  writeln('L: '),writeln(Y),
+  writeln('T: '),writeln(Z),
+  halt.
+:-prueba_f.

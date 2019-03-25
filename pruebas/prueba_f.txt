@@ -1,0 +1,819 @@
+Ficha Asignada: J-1 F-[4,0]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[2,2]
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[6,0]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[4,1]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[5,3]
+Ficha_o Asignada: J-2 F-[6,6]
+Ficha_o Asignada: J-2 F-[5,4]
+Ficha_o Asignada: J-2 F-[1,0]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[3,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 38760
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 1]], 420).
+movida_minmax([1, [4, 0]], -12247).
+
+Resultado:[1,[4,1]]
+
+% 777,331 inferences, 0.274 CPU in 34.135 seconds (1% CPU, 2833653 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 0]], -2711).
+movida_minmax([1, [6, 0]], -156).
+movida_minmax([1, [0, 0]], -10503).
+
+Resultado:[1,[6,0]]
+
+% 160,354 inferences, 0.047 CPU in 38.921 seconds (0% CPU, 3446111 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 6
+  Jugador:  2
+  Ficha:    [5,3]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,5]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[2,1]
+Ficha Asignada: J-1 F-[6,4]
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 286
+Se van a evaluar 2000 manos(D=4, numFichas > 7).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [2, 2]], 582).
+movida_minmax([1, [4, 0]], 469).
+movida_minmax([2, [2, 1]], 818).
+
+Resultado:[2,[2,1]]
+
+% 14,341 inferences, 0.004 CPU in 0.634 seconds (1% CPU, 3741205 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     1
+  LadoLibre:2
+Turno: 11
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 12
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,2]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[6,1]
+Numero de manos posibles: 8
+Se van a evaluar 2000 manos(D=4, numFichas > 7).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [6, 1]], 117).
+
+Resultado:[1,[6,1]]
+
+% 8,768 inferences, 0.002 CPU in 0.005 seconds (49% CPU, 3824913 Lips)
+Turno: 13
+  Jugador:  1
+  Ficha:    [6,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 14
+  Jugador:  2
+  Ficha:    [6,6]
+  Lado:     1
+  LadoLibre:1
+Ganador: 
+2Ganador: 
+2Ficha Asignada: J-1 F-[6,3]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[4,0]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[4,2]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[4,3]
+Ficha_o Asignada: J-2 F-[5,5]
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[6,1]
+Ficha_o Asignada: J-2 F-[6,6]
+Turno: 1
+  Jugador:  1
+  Ficha:    [3,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 38760
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 1]], 2961).
+movida_minmax([2, [3, 0]], 6033).
+movida_minmax([1, [1, 0]], 10909).
+
+Resultado:[1,[1,0]]
+
+% 508,919 inferences, 0.140 CPU in 91.626 seconds (0% CPU, 3622530 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 4
+  Jugador:  2
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 11628
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 0]], 3811).
+movida_minmax([2, [4, 0]], 19621).
+movida_minmax([1, [3, 0]], 4661).
+movida_minmax([1, [0, 0]], 2071).
+
+Resultado:[2,[4,0]]
+
+% 160,120 inferences, 0.052 CPU in 59.270 seconds (0% CPU, 3099120 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,0]
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 8568
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [3, 0]], 4015).
+movida_minmax([2, [6, 3]], 13522).
+movida_minmax([1, [0, 0]], 1870).
+
+Resultado:[2,[6,3]]
+
+% 123,997 inferences, 0.040 CPU in 37.372 seconds (0% CPU, 3074301 Lips)
+Turno: 7
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[5,0]
+Turno: 8
+  Jugador:  2
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles: 11440
+Se van a evaluar 2000 manos(D=4, numFichas > 7).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [3, 0]], -11421).
+movida_minmax([1, [5, 1]], 705).
+
+Resultado:[1,[5,1]]
+
+% 315,809 inferences, 0.073 CPU in 7.396 seconds (1% CPU, 4304448 Lips)
+Turno: 9
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     1
+  LadoLibre:2
+Turno: 10
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     1
+  LadoLibre:1
+Turno: 11
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:2
+Turno: 12
+  Jugador:  2
+  Ficha:    [4,2]
+  Lado:     1
+  LadoLibre:2
+Turno: 13
+  Jugador:  1
+  Ficha:    [0,0]
+  Lado:     2
+  LadoLibre:1
+Ganador: 
+1Ganador: 
+1Ficha Asignada: J-1 F-[1,0]
+Ficha Asignada: J-1 F-[5,0]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[5,1]
+Ficha Asignada: J-1 F-[3,0]
+Ficha Asignada: J-1 F-[4,2]
+Ficha Asignada: J-1 F-[5,2]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[2,1]
+Ficha_o Asignada: J-2 F-[3,2]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[1,1]
+Ficha_o Asignada: J-2 F-[6,4]
+Ficha_o Asignada: J-2 F-[3,1]
+Ficha_o Asignada: J-2 F-[5,5]
+Turno: 1
+  Jugador:  1
+  Ficha:    [5,3]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [3,2]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 0]], 5340).
+movida_minmax([2, [4, 2]], 3219).
+movida_minmax([2, [5, 2]], 15387).
+
+Resultado:[2,[5,2]]
+
+% 508,860 inferences, 0.163 CPU in 214.067 seconds (0% CPU, 3130511 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [5,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [5,5]
+  Lado:     1
+  LadoLibre:2
+Numero de manos posibles: 11628
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [5, 1]], 3552).
+movida_minmax([1, [5, 0]], 5374).
+
+Resultado:[1,[5,0]]
+
+% 160,491 inferences, 0.071 CPU in 73.104 seconds (0% CPU, 2257142 Lips)
+Turno: 5
+  Jugador:  1
+  Ficha:    [5,0]
+  Lado:     1
+  LadoLibre:2
+Turno: 6
+  Jugador:  2
+  Ficha:    [6,0]
+  Lado:     1
+  LadoLibre:1
+Turno: 7
+  Jugador:  1
+  Ficha:    [5,1]
+  Lado:     2
+  LadoLibre:2
+Turno: 8
+  Jugador:  2
+  Ficha:    [2,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 9
+  Jugador:  1
+  Ficha:    [4,2]
+  Lado:     2
+  LadoLibre:1
+Turno: 10
+  Jugador:  2
+  Ficha:    [6,4]
+  Lado:     1
+  LadoLibre:2
+Ficha Asignada: J-1 F-[6,1]
+Ficha Asignada: J-1 F-[4,0]
+Numero de manos posibles bajo: 91
+(D=10).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([1, [4, 0]], 1157).
+
+Resultado:[1,[4,0]]
+
+% 9,227 inferences, 0.003 CPU in 0.086 seconds (4% CPU, 2958204 Lips)
+Turno: 11
+  Jugador:  1
+  Ficha:    [4,0]
+  Lado:     1
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[2,0]
+Turno: 12
+  Jugador:  2
+  Ficha:    [2,0]
+  Lado:     1
+  LadoLibre:1
+Ficha Asignada: J-1 F-[4,3]
+Turno: 13
+  Jugador:  1
+  Ficha:    [4,3]
+  Lado:     2
+  LadoLibre:2
+Turno: 14
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles bajo: 9
+(D=10).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [6, 1]], 72).
+movida_minmax([2, [1, 0]], 117).
+
+Resultado:[2,[1,0]]
+
+% 7,470 inferences, 0.003 CPU in 0.005 seconds (60% CPU, 2615655 Lips)
+Turno: 15
+  Jugador:  1
+  Ficha:    [1,0]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,5]
+Ficha_o Asignada: J-2 F-[2,2]
+Turno: 16
+  Jugador:  2
+  Ficha:    [2,2]
+  Lado:     1
+  LadoLibre:1
+Turno: 17
+  Jugador:  1
+  Ficha:    [3,0]
+  Lado:     2
+  LadoLibre:1
+Ficha_o Asignada: J-2 F-[3,3]
+Turno: 18
+  Jugador:  2
+  Ficha:    [3,3]
+  Lado:     2
+  LadoLibre:1
+Ficha Asignada: J-1 F-[6,6]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[4,1]
+Ficha Asignada: J-1 F-[0,0]
+Ficha Asignada: J-1 F-[6,3]
+Turno: 19
+  Jugador:  1
+  Ficha:    [6,3]
+  Lado:     2
+  LadoLibre:1
+Turno: 20
+  Jugador:  2
+  Ficha:    [6,5]
+  Lado:     2
+  LadoLibre:2
+Ficha Asignada: J-1 F-[5,4]
+Turno: 21
+  Jugador:  1
+  Ficha:    [5,4]
+  Lado:     2
+  LadoLibre:2
+Ficha_o Asignada: J-2 F-[6,2]
+Turno: 22
+  Jugador:  2
+  Ficha:    [6,2]
+  Lado:     1
+  LadoLibre:1
+Numero de manos posibles bajo: 1
+(D=10).
+
+% 10,829 inferences, 0.003 CPU in 0.003 seconds (91% CPU, 3616688 Lips)
+Turno: 23
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 24
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,062 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6658717 Lips)
+Turno: 25
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 26
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,128 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7189143 Lips)
+Turno: 27
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 28
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,185 inferences, 0.002 CPU in 0.002 seconds (102% CPU, 5634181 Lips)
+Turno: 29
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 30
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,242 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 4408502 Lips)
+Turno: 31
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 32
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,299 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5873517 Lips)
+Turno: 33
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 34
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,356 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7293677 Lips)
+Turno: 35
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 36
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,413 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7319403 Lips)
+Turno: 37
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 38
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,470 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5612120 Lips)
+Turno: 39
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 40
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,527 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5733991 Lips)
+Turno: 41
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 42
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,584 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7250572 Lips)
+Turno: 43
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 44
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,641 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7537197 Lips)
+Turno: 45
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 46
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,698 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7005499 Lips)
+Turno: 47
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 48
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,755 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5774199 Lips)
+Turno: 49
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 50
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,812 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7144287 Lips)
+Turno: 51
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 52
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,869 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7424921 Lips)
+Turno: 53
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 54
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,926 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7107308 Lips)
+Turno: 55
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 56
+  Jugador:  2
+  El jugador pasa su turno.
+% 10,983 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5834905 Lips)
+Turno: 57
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 58
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,040 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7150995 Lips)
+Turno: 59
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 60
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,097 inferences, 0.001 CPU in 0.001 seconds (100% CPU, 7582280 Lips)
+Turno: 61
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 62
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,154 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6480509 Lips)
+Turno: 63
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 64
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,211 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5477020 Lips)
+Turno: 65
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 66
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,268 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6951097 Lips)
+Turno: 67
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 68
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,325 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7317499 Lips)
+Turno: 69
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 70
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,382 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5849946 Lips)
+Turno: 71
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 72
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,439 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5439957 Lips)
+Turno: 73
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 74
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,496 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7100640 Lips)
+Turno: 75
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 76
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,553 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7252759 Lips)
+Turno: 77
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 78
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,610 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 4445631 Lips)
+Turno: 79
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 80
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,667 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5998664 Lips)
+Turno: 81
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 82
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,724 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7268322 Lips)
+Turno: 83
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 84
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,781 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5277479 Lips)
+Turno: 85
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 86
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,838 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5117075 Lips)
+Turno: 87
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 88
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,895 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7014633 Lips)
+Turno: 89
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 90
+  Jugador:  2
+  El jugador pasa su turno.
+% 11,952 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7420795 Lips)
+Turno: 91
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 92
+  Jugador:  2
+  El jugador pasa su turno.
+% 12,009 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 6724555 Lips)
+Turno: 93
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 94
+  Jugador:  2
+  El jugador pasa su turno.
+% 12,066 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 5321971 Lips)
+Turno: 95
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 96
+  Jugador:  2
+  El jugador pasa su turno.
+% 12,123 inferences, 0.002 CPU in 0.002 seconds (100% CPU, 7029603 Lips)
+Turno: 97
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 98
+  Jugador:  2
+  El jugador pasa su turno.
+% 12,180 inferences, 0.002 CPU in 0.002 seconds (101% CPU, 6674931 Lips)
+Turno: 99
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 100
+  Jugador:  2
+  El jugador pasa su turno.
+% 12,237 inferences, 0.003 CPU in 0.003 seconds (100% CPU, 4369415 Lips)
+Turno: 101
+  Jugador:  1
+  El jugador pasa su turno.
+Turno: 102
+  Jugador:  2
+  El jugador pasa su turno.
+Ficha Asignada: J-1 F-[1,1]
+Ficha Asignada: J-1 F-[3,3]
+Ficha Asignada: J-1 F-[5,3]
+Ficha Asignada: J-1 F-[4,4]
+Ficha Asignada: J-1 F-[4,3]
+Ficha Asignada: J-1 F-[3,2]
+Ficha Asignada: J-1 F-[5,4]
+Jugador oculto creado #2
+Ficha_o Asignada: J-2 F-[6,3]
+Ficha_o Asignada: J-2 F-[6,0]
+Ficha_o Asignada: J-2 F-[2,2]
+Ficha_o Asignada: J-2 F-[4,1]
+Ficha_o Asignada: J-2 F-[3,0]
+Ficha_o Asignada: J-2 F-[6,2]
+Ficha_o Asignada: J-2 F-[3,1]
+Turno: 1
+  Jugador:  1
+  Ficha:    [4,4]
+  Lado:     0
+  LadoLibre:0
+Turno: 2
+  Jugador:  2
+  Ficha:    [4,1]
+  Lado:     2
+  LadoLibre:2
+Numero de manos posibles: 38760
+Se van a evaluar 5000 manos(D=4).
+
+:- thread_local movida_minmax/2.
+:- dynamic movida_minmax/2.
+:- volatile movida_minmax/2.
+
+movida_minmax([2, [1, 1]], 6243).
+
+Resultado:[2,[1,1]]
+
+% 508,627 inferences, 0.123 CPU in 69.809 seconds (0% CPU, 4149595 Lips)
+Turno: 3
+  Jugador:  1
+  Ficha:    [1,1]
+  Lado:     2
+  LadoLibre:1
+Turno: 4
+  Jugador:  2
+  Ficha:    [3,1]
+  Lado:     2
+  LadoLibre:1
+Numero de manos posibles: 11628
+Se van a evaluar 5000 manos(D=4).
+
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 
+Action (h for help) ? 

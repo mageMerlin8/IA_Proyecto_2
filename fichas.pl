@@ -263,7 +263,7 @@ ganador(Js):-
   jugador(Js),
   lista_fichas_jugador(Ls,Js),
   Ls = [],
-  write('Ganador: '),write(Js),!.
+  writeln('Ganador: '),write(Js),!.
 ganador(-1):-
   %write('Empate!'),
   fail.
@@ -617,7 +617,9 @@ numero_fichas_jugador_oculto(Js, Num) :-
   ((findall(X,turno(X,Js,_,_,_), LsFichasJugadas),!);
   LsFichasJugadas = []),
   length(LsFichasJugadas, NumJugadas),
-  Num is Ini + NumComidas - NumJugadas.
+  Num is Ini + NumComidas - NumJugadas,
+  Num=\=0,!.
+numero_fichas_jugador_oculto(_,7).
 
 /*
  _____  ___   ______           _

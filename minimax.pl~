@@ -486,59 +486,34 @@ conc_evalua_4(Js,Resp):-
   findall(X,mano_posible_oculto(2,X),ManosOp),
   length(ManosOp,Tam0),
   Tam0>1000,
-  length(ManoIA,Tii),Tii<7,
   nth1(1,ManosOp,Mi),length(Mi,Ti),Ti<7,
   write('Numero de manos posibles: '),
   writeln(Tam0),
-  writeln('Se van a evaluar 5000 manos(D=4).'),nl,
+  writeln('Se van a evaular 5000 manos(D=4).'),nl,
   random_permutation(ManosOp, ManosOpPer),
   primeros_n_ls(ManosOpPer,5000,LsFin),
 
-  evalua_en_4(Js,LsFin,Movidas,Resp,4),
+  evalua_en_4(LsFin,Movidas,Resp,4),
 
   listing(movida_minmax),
   write('Resultado:'),writeln(Resp),nl,!.
+
+
 conc_evalua_4(Js,Resp):-
-  retractall(movida_minmax(_,_)),
   lista_fichas_jugador(ManoIA,Js),
   movidas_posibles(ManoIA,Movidas),
 
   findall(X,mano_posible_oculto(2,X),ManosOp),
   length(ManosOp,Tam0),
-  ((nth1(1,ManosOp,Mi),length(Mi,Ti),Ti>=7,!);
-  (length(ManoIA,Tii),Tii>=7)),
-  write('Numero de manos posibles: '),
-  writeln(Tam0),
-  writeln('Se van a evaluar 2000 manos(D=4, numFichas > 7).'),nl,
-  random_permutation(ManosOp, ManosOpPer),
-  primeros_n_ls(ManosOpPer,2000,LsFin),
-
-  evalua_en_4(Js,LsFin,Movidas,Resp,4),
-
-  listing(movida_minmax),
-  write('Resultado:'),writeln(Resp),nl,!.
-conc_evalua_4(Js,Resp):-
-  retractall(movida_minmax(_,_)),
-  lista_fichas_jugador(ManoIA,Js),
-  movidas_posibles(ManoIA,Movidas),
-
-  findall(X,mano_posible_oculto(2,X),ManosOp),
-  length(ManosOp,Tam0),
-  Tam0<1001,
-  nth1(1,ManosOp,Mi),length(Mi,Ti),Ti<7,
-  write('Numero de manos posibles bajo: '),
-  writeln(Tam0),
-  writeln('(D=10).'),nl,
-
-  evalua_en_4(Js,ManosOp,Movidas,Resp,10),
-
+  Tam0>0,
+  Tam0<101,
+  write('Numero de manos posibles bajo: '),writeln(Tam0),
+  writeln('Se va a usar la definicion alternativa (sin concurrencia D=10)'),
+  ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp,10),
   listing(movida_minmax),
   write('Resultado:'),writeln(Resp),nl,!.
 
-
-evalua_en_4(Js,Lista,Movidas,Resp,D):-
-  lista_fichas_jugador(ManoIA,Js),
-  movidas_posibles(ManoIA,Movidas),
+evalua_en_4(Lista,Movidas,Resp,D):-
   div_4(Lista,L1,L2,L3,L4),
   concurrent(4,[ia_minimax_evalua_conc(Js,Movidas,L1,ManoIA,R1,D),
                 ia_minimax_evalua_conc(Js,Movidas,L2,ManoIA,R2,D),
@@ -549,15 +524,19 @@ evalua_en_4(Js,Lista,Movidas,Resp,D):-
   cambia_valores_mvs_conc(R3),
   cambia_valores_mvs_conc(R4),
   ia_minimax_evalua(_,_,[],_,Resp,_).
+
+
 cambia_valores_mvs_conc([Hi|Ls]):-
   nth0(0,Hi,H0),
   nth0(1,Hi,H1),
   ia_minimax_cambia_valor_movida(H0,H1),
   cambia_valores_mvs_conc(Ls).
 cambia_valores_mvs_conc([]).
+
 ia_minimax_evalua_conc(Js,Movidas,L1,ManoIA,LsMovs,D):-
   ia_minimax_evalua(Js,Movidas,L1,ManoIA,_,D),
   ls_movidas_minmax(LsMovs).
+
 ls_movidas_minmax(Ls):-
   findall(X,movida_minmax(X,_),L1),
   findall(Y,movida_minmax(_,Y),L2),
