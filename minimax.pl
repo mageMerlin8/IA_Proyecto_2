@@ -6,7 +6,14 @@ ___  ____       _
 | |  | | | | | | | | | | | | (_| |>  <
 \_|  |_/_|_| |_|_|_| |_| |_|\__,_/_/\_\
 
-aqui va todo el desmadre de minimax.
+En este archivo se definen todos los metodos necesarios para el funcionamiento
+del agente inteligente. Se definen primero predicados dinamicos del tipo
+thread_local para poder hacer los calculos minimax en distintos procesos. Estos
+guardan la informacion de turnos y fichas de los jugadores de la misma manera
+que la guardan los definidos en fichas.pl. Se vuelven a definir todas las
+funciones necesarias para jugar domino pero ahora con el sufijo '_p' probable.
+Esto se hace porque el agente inteligente debe ser capaz de emular el juego
+varios turnos en el futuro para tomar su decision.
 */
 :-include(fichas).
 /*
@@ -44,7 +51,11 @@ lista_fichas_aleatorias(Fis,Tam0):-
   lista_fichas_disponibles(Disp),
   random_permutation(Disp,Rand),
   primeros_n_ls(Rand,Tam0,Fis).
-
+/*
+Todos los predicados siguientes emulan el comportamiento de los predicados del
+mismo nombre en fichas.pl tomando en cuenta la informacion en turno/5 y
+jugador_ficha/2 tanto como la que esta en turno_p/5 y en jugador_ficha_p/2.
+*/
 asignar_fichas_p(Js,[Fi|Mano]):-
   asserta(jugador_ficha_p(Js,Fi)),
   asignar_fichas_p(Js,Mano).
@@ -52,11 +63,7 @@ asignar_fichas_p(_,[]).
 mano_jugador_p(Js,Mano):-
   findall(X,jugador_ficha_p(Js,X),Mano),!.
 mano_jugador_p(_,[]):-!.
-/*
-Primero se replica toda la funcionalidad del juego dentro del agente inteligente
-para que pueda construir los arboles de juego usando la misma logica de juego y
-los predicados dinamicos _p 'p de posibles'.
-*/
+
 ultimo_turno_p(T):-
   findall(X, turno_p(_,_,_,X,_), TurnosP),
   max_list(TurnosP, T),!.
@@ -79,25 +86,6 @@ ultima_ficha_lado_p(Lado,Ficha):-
   turno_p(Ficha,_,_,T,_),!.
 ultima_ficha_lado_p(Lado,Ficha):-
   ultima_ficha_lado(Lado,Ficha).
-%
-% ultima_ficha_lado_p(Lado,Ficha):-
-%   ultimo_turno_p(T),
-%   primer_turno_p(T1),
-%   T < T1,
-%   ultima_ficha_lado(Lado,Ficha),!.
-%
-% ultima_ficha_lado_p(Lado, Ficha) :-
-%   ultimo_turno_p(T),
-%   (
-%   (turno_p(Ficha,_,Lado,T,_),!);
-%   (T1 is T-1,ultima_ficha_lado_p(Lado, Ficha, T1))
-%   ).
-% %Funciones auxiliares
-% ultima_ficha_lado_p(Lado,Ficha,T):-
-%   primer_turno_p(PT),
-%   T < PT,
-%   ultima_ficha_lado(Lado, Ficha, T),!.
-%TODO: Considerar quitar el caso donde turno es -1 ya que el primer turno_p no sera menor a 0
 ultima_ficha_lado_p(_, Ficha, -1):-
   turno_p(Ficha,_,_,1,_),!.
 ultima_ficha_lado_p(Lado, Ficha, T) :-
@@ -120,7 +108,6 @@ ficha_num_libre_p([X,Y],Y):-
   \+turno(_,_,2,_,_),
   \+(turno([Y,_],_,1,_,2);
      turno([_,Y],_,1,_,2)).
-
 
 ficha_turno_valida_p(Ficha, Lado, LL):-
   ultima_ficha_lado(Lado, UltimaFicha),
@@ -150,9 +137,6 @@ jugador_turno_valido_p(Jugador):-
   (Jugador is (UltJs+1) rem MaxJs, jugador(Jugador),!)
   ).
 
-
-
-
 jugar_turno_p(Jugador, Ficha, Lado):-
   jugador(Jugador),
   ficha(Ficha),
@@ -171,7 +155,22 @@ jugar_turno_p(Jugador, Ficha, Lado):-
   write('  Lado:     '),write(Lado),nl,
   write('  LadoLibre:'),write(LL),nl*/.
 
-%MV de la forma: [Lado,Ficha([X1,X2])]
+numero_fichas_jugador_p(Js,Num):-
+  (
+  (findall(X,jugador_ficha_p(Js,X),Fis),!);
+  Fis = []
+  ),
+  length(Fis,Num).
+
+/*
+movidas_posibles(Mano, Movidas):-
+      predicado que regresa una lista con las movidas que se pueden hacer dada
+      una mano. Sirve para hacer la lista de movidas en cada nodo del arbol
+      minimax. Cada elemento de la lista Movidas es una lista donde el primer
+      elemento es el lado donde se puede jugar y el segundo elemento es la
+      ficha.
+
+*/
 movidas_posibles([],[]).
 movidas_posibles([Fi|Mano],[[1,Fi],[2,Fi]|Movidas]):-
   ficha_turno_valida_p(Fi,1,_),
@@ -185,14 +184,12 @@ movidas_posibles([Fi|Mano],[[2,Fi]|Movidas]):-
   movidas_posibles(Mano,Movidas),!.
 movidas_posibles([_|Mano],Movidas):-
   movidas_posibles(Mano,Movidas).
-
-numero_fichas_jugador_p(Js,Num):-
-  (
-  (findall(X,jugador_ficha_p(Js,X),Fis),!);
-  Fis = []
-  ),
-  length(Fis,Num).
-
+/*
+retraer_turnos_anteriores(T):- retrae todos los turno_p/5 anteriores
+                               (incluyendolo) al turno T. Se usa para borrar la
+                               informacion de los turnos durante el
+                               backtracking.
+*/
 retraer_turnos_anteriores(Turno):-
   ultimo_turno_p(UltT),
   retraer_turnos_anteriores(Turno,UltT).
@@ -204,7 +201,12 @@ retraer_turnos_anteriores(Turno,T1):-
   T2 is T1-1,
   retraer_turnos_anteriores(Turno,T2),!.
 retraer_turnos_anteriores(_,_):-!.
-
+/*
+jugar_turno_minimax(Movida,Turno):-
+    Hace todos los pasos necesarios para jugar un turno_p durante la ejecucion
+    del minimax. La movida es de la misma forma que en movidas_posibles/2 y
+    Turno es el numero de turno que se juega.
+*/
 jugar_turno_minimax([Lado|[Ficha]],Turno):-
   %quitar todos los turnos anteriores y este
   retraer_turnos_anteriores(Turno),
@@ -212,6 +214,11 @@ jugar_turno_minimax([Lado|[Ficha]],Turno):-
   jugador_turno_valido_p(Js),
   %jugar el turno
   jugar_turno_p(Js,Ficha,Lado).
+/*
+movidas_posibles_minimax(Movidas):-
+    Funcion util que regresa la lista de movidas del jugador cuyo turno sigue
+    durante la ejecucion del minimax (turno_p).
+*/
 movidas_posibles_minimax(Mvs):-
   jugador_turno_valido_p(Js),
   mano_jugador_p(Js,Mano),
@@ -226,38 +233,32 @@ evalua_1_2Js(Val):-
   numero_fichas_jugador_p(J2,F2),
   Val is F1-F2.
 
-evalua_rand(Val):-
-  random(X),
-  Val is X*10.
-  %listing(turno_p).
-
 /*
-La siguiente implementacion del algoritmo minimax imita el descrito en:
+La siguiente implementacion del algoritmo minimax con poda alfa beta imita el
+descrito en:
 The Art of Prolog, Second Edition
 Advanced Programming Techniques
 By Leon S. Sterling and Ehud Y. Shapiro
 Capitulo 20
-*/
-evaluate_and_choose([Mv|Movidas],Turno,D,MaxMin,Record,Best):-
-  jugar_turno_minimax(Mv,Turno),
-  T2 is Turno+1,
-  minimax(D,T2,MaxMin,_,Val),
-  update(Mv,Val,Record,R2),
-  evaluate_and_choose(Movidas,Turno,D,MaxMin,R2,Best).
-evaluate_and_choose([],_,_,_,R,R).
-minimax(0,_,MaxMin,_,Val):-
-  evalua_rand(Val),
-  Val is MaxMin*Val.
-minimax(D,Turno,MaxMin,Mv,Val):-
-  D>0,
-  movidas_posibles_minimax(Movidas),
-  D1 is D-1,
-  MinMax is -MaxMin,
-  evaluate_and_choose(Movidas,Turno,D1,MinMax,[nil,-100],[Mv,Val]).
-update(_,Val,[Mv1,V1],[Mv1,V1]):-
-   Val < V1.
-update(Mv,Val,_,[Mv,Val]).
+Se hicieron algunos ajustes para integrarlo con este proyecto:
+  - Aqui no es neceario guardar el estado actual del juego porque turno_p se
+    encarga entonces en lugar de manejar el estado entero en cada llamada
+    solamente se maneja el numero de turno.
+  - Ademas hubo que agregar casos base al minimax:
+    1. Cuando algun jugador se queda sin fichas gano y por lo tanto el valor
+      heuristico debe ser alto.
+    2. Cuando algun jugador se queda con fichas pero movidas, tiene que comer y
+      por lo tanto tiene un valor bajo (negativo).
 
+*/
+/*
+evaluate_and_choose_ab(Movidas,T,D,A,B,Mv1,Mejor):-
+    Funcion que evalua las todas las Movidas majo minimax y regresa la mejor movida y su valor en Mejor. Movidas es la lista de movidas a analizar, T es
+    el numero de turno, D es la profundidad, A y B son los parametros alfa y
+    beta, Mv1 es una variable que utiliza para guardar el mejor valor durante
+    la ejecucion u Mejor es una lista que contiene el valor de la mejor movida
+    seguido de esta.
+*/
 %con poda alfa beta
 evaluate_and_choose_ab([Mv|Movidas],Turno,D,Alfa,Beta,Mv1,Best):-
   jugar_turno_minimax(Mv,Turno),
@@ -303,7 +304,13 @@ cutoff(_,Val,D,Alfa,Beta,Movidas,Turno,Mv1,Best):-
   | | |  _  | | |\/| | | '_ \| | |\/| |/ _` \ \/ /
  _| |_| | | | | |  | | | | | | | |  | | (_| |>  <
  \___/\_| |_/ \_|  |_/_|_| |_|_\_|  |_/\__,_/_/\_\
-Este agente solamente va a poder jugar entre 1 de estos y un jugador ocultos (por ahora).
+Aqui se describe el funcionamiento de un agente inteligente que usa minimax para
+tomar decisiones en un juego de domino. Solamente funciona contra un
+jugador_oculto.
+*/
+/*
+crea_ia_minimax(Js,Mano):-
+    Crea un jugador minimax con numero de jugador Js y mano Mano.
 */
 crea_ia_minimax(Js,Mano):-
   jugador(Js),
@@ -319,12 +326,20 @@ fichas_por_jugador([Ji|Js],[Mi|Manos]):-
   findall(X,mano_posible_oculto(Ji,X),Mi),
   fichas_por_jugador(Js,Manos),!.
 fichas_por_jugador(_,[]):-!.
-
+/*
+ia_minimax_acerta_movidas_ini(Movidas):-
+    Hace assert de movida_minmax(Mv,0) por cada Mv en Movidas. Mv es una movida
+    posible del jugador minimax. Este predicado se usa para llevar el total del
+    valor heuristico de cada movida bajo minimax.
+*/
 ia_minimax_acerta_movidas_ini([Movida|Mvs]):-
   assert(movida_minmax(Movida,0)),
   ia_minimax_acerta_movidas_ini(Mvs).
 ia_minimax_acerta_movidas_ini([]).
-
+/*
+ia_minimax_cambia_valor_movida(Mv,Val):-
+    Le suma el valor Val al valor actual de la movida Mv.
+*/
 ia_minimax_cambia_valor_movida(Mv,inf):-
   ia_minimax_cambia_valor_movida(Mv,100),!.
 ia_minimax_cambia_valor_movida(Mv,-inf):-
@@ -336,25 +351,27 @@ ia_minimax_cambia_valor_movida(Movida,Val):-
   asserta(movida_minmax(Movida,X1)),!.
 ia_minimax_cambia_valor_movida(Movida,Val):-
   asserta(movida_minmax(Movida,Val)),!.
-
-
+/*
+ia_minimax_evalua(Js,R):- R es la mejor movida segun el algoritmo minimax.
+        Esta funcion al final no se decidio ejecutarla en varios procesos pero
+        se dejo porque describe el mismo comportamiento pero en un solo proceso.
+*/
 ia_minimax_evalua(Js,Resp):-
   lista_fichas_jugador(ManoIA,Js),
   movidas_posibles(ManoIA,Movidas),
   retractall(movida_minmax(_,_)),
   ia_minimax_acerta_movidas_ini(Movidas),
-  /*ultimo_turno(UltT),
-  T1 is UltT+1,
-  D is 4,
-  findall(X,jugador_oculto(X),Oponente),
-  fichas_por_jugador(Oponente,ManosOp),*/
   findall(X,mano_posible_oculto(2,X),ManosOp),
 
   length(ManosOp,Tam0),write('Numero de manos posibles: '),writeln(Tam0),
 
   ia_minimax_evalua(Js,Movidas,ManosOp,ManoIA,Resp).
-  %hacer jugador_ficha jugaror_ficha_p
-
+/*
+ia_minimax_evalua(J,Movidas,Manos,ManoIa,Resp,D):-
+    Regresa la mejor movida de Movidas evaluandolas por cada Mano posible del
+    jugador oculto. Por cada mano posible del oponente, se hace un arbol
+    minimax y se guarda la movida y el valor mas alto.
+*/
 %alfabeta
 ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp,D):-
   retractall(jugador_ficha_p(_,_)),
@@ -364,24 +381,14 @@ ia_minimax_evalua(Js,Movidas,[Mano|Manos],ManoIA,Resp,D):-
   asignar_fichas_p(Jo,Mano),
   ultimo_turno(UltT),
   T1 is UltT+1,
-
-  %nl,writeln(['  Mano siendo analizada: ',Mano]),
-
-  %time()
   evaluate_and_choose_ab(Movidas,T1,D,-100,100,_,[Mv,Val]),
-
-  %writeln(['    Movida: ',Mv,' Val: ',Val]),
-
   ia_minimax_cambia_valor_movida(Mv,Val),
   ia_minimax_evalua(Js,Movidas,Manos,ManoIA,Resp,D),!.
   %acaba alfabeta
-
-
 ia_minimax_evalua(_,_,[],_,Resp,_):-
   findall(X,movida_minmax(_,X),ValMovidas),
   max_list(ValMovidas,MaxVal),
   movida_minmax(Resp,MaxVal),!.
-
 ia_minimax_juega(Js,Fi,La):-
   ia_minimax(Js),
   ficha(Fi),
@@ -389,22 +396,28 @@ ia_minimax_juega(Js,Fi,La):-
   member(Fi,Fichas),
   jugar_turno(Js,Fi,La),!.
 
-%esta de abajo juega una ficha aleatoria cuando es el primer turno
-%se usa para las pruebas.
-% ia_minimax_juega_automatico(Js):-
-%   ultimo_turno(UltT),
-%   UltT = 0,
-%   random(N),
-%   E is floor(N*7)+1,
-%   lista_fichas_jugador(Mano,Js),
-%   nth1(E,Mano,Esc),
-%   ia_minimax_juega(Js,Esc,0).
+/*
+Las funciones de abajo son para ayudar a jugar el primer turno dadas las
+especificaciones dadas en clase.
+*/
 mula_mas_alta(Mano,[X,X]):-
   numero(X),
   member([X,X],Mano).
 ficha_mas_alta(Mano,Mula):-
   ficha(Mula),
   member(Mula,Mano).
+
+/*
+ia_minimax_juega_automatico(J):-
+    Hace que el jugador J juegue automaticamente:
+      -Si es el primer turno, pone la mula mas alta o la ficha mas alta en ese
+      orden.
+      -Si solamente puede poner una ficha en un lado, pone esa ficha.
+      -Si puede poner mas de una, evalua en minimax las movidas posible y decide
+      la mejor y la juega.
+      -Si hay algun error pone una ficha aleatoriamente.
+      -Si no puede poner una ficha, el predicado falla (ia debe comer).
+*/
 ia_minimax_juega_automatico(Js):-
   ultimo_turno(UltT),
   UltT = 0,
@@ -417,7 +430,6 @@ ia_minimax_juega_automatico(Js):-
   lista_fichas_jugador(Mano,Js),
   ficha_mas_alta(Mano,Mula),
   ia_minimax_juega(Js,Mula,0).
-
 ia_minimax_juega_automatico(Js):-
   %solo puede poner una ficha
   lista_fichas_jugador(ManoIA,Js),
@@ -434,12 +446,21 @@ ia_minimax_juega_automatico(Js):-
   movidas_posibles(ManoIA,Movidas),
   length(Movidas,N),
   N=0,!,fail.
-
 ia_minimax_juega_automatico(Js):-
   % normal
   time(conc_evalua_4(Js,Ri)),
   nth0(0,Ri,R0),
   nth0(1,Ri,R1),
+  ia_minimax_juega(Js,R1,R0),!.
+ia_minimax_juega_automatico(Js):-
+  %aleatorio
+  lista_fichas_jugador(ManoIA,Js),
+  movidas_posibles(ManoIA,Movidas),
+  length(Movidas,N),
+  N>0,
+  nth0(0,Movidas,Mov),
+  nth0(0,Mov,R0),
+  nth0(1,Mov,R1),
   ia_minimax_juega(Js,R1,R0),!.
 
 ia_minimax_come(Js,Fi):-
@@ -473,11 +494,13 @@ ___  ___      _ _   _ _   _                        _
 | |  | | |_| | | |_| | |_| | | | | |  __/ (_| | (_| |/ /
 \_|  |_/\__,_|_|\__|_|\__|_| |_|_|  \___|\__,_|\__,_/___|
 */
-% break_here_plz.
-% conc_evalua_4(_,_):-
-%   findall(X,mano_posible_oculto(2,X),ManosOp),
-%   ManosOp = [], break_here_plz.
-
+/*
+conc_evalua_4(Js,R):-
+    Encuentra la mejor movida (minimax) del jugador Js y la regresa en R. Para
+    hacer esto, encuentra todas las manos posibles del jugador oculto y si son
+    suficientes, busca hacerlo en 4 procesos distintos. Si son mas de 5000 Manos
+    solamente evalua 5000 manos (escogidas de forma aleatoria).
+*/
 conc_evalua_4(Js,Resp):-
   retractall(movida_minmax(_,_)),
   lista_fichas_jugador(ManoIA,Js),
@@ -524,6 +547,7 @@ conc_evalua_4(Js,Resp):-
 
   findall(X,mano_posible_oculto(2,X),ManosOp),
   length(ManosOp,Tam0),
+  Tam0 > 1,
   Tam0<1001,
   nth1(1,ManosOp,Mi),length(Mi,Ti),Ti<7,
   write('Numero de manos posibles bajo: '),
@@ -535,7 +559,32 @@ conc_evalua_4(Js,Resp):-
   listing(movida_minmax),
   write('Resultado:'),writeln(Resp),nl,!.
 
+  conc_evalua_4(Js,Resp):-
+    retractall(movida_minmax(_,_)),
+    lista_fichas_jugador(ManoIA,Js),
+    movidas_posibles(ManoIA,Movidas),
 
+    findall(X,mano_posible_oculto(2,X),ManosOp),
+    length(ManosOp,Tam0),
+    Tam0 = 1,
+    write('Numero de manos posibles bajo: '),
+    writeln(Tam0),
+    writeln('(D=10).'),nl,
+
+    lista_fichas_jugador(ManoIA,Js),
+    movidas_posibles(ManoIA,Movidas),
+
+    ultimo_turno(UltT),
+    T1 is UltT+1,
+    evaluate_and_choose_ab(Movidas,T1,10,-100,100,_,Resp),
+
+    listing(movida_minmax),
+    write('Resultado:'),writeln(Resp),nl,!.
+/*
+evalua_en_4(J,ManosOp,Movidas,Resp,D):-
+    Evalua en 4 procesos la mejor movida bajo minimax. Primero divide las manos
+    en 4 listas y llama ia_minimax_evalua_conc/5 por cada lista de manos.
+*/
 evalua_en_4(Js,Lista,Movidas,Resp,D):-
   lista_fichas_jugador(ManoIA,Js),
   movidas_posibles(ManoIA,Movidas),
